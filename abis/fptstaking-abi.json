@@ -1,0 +1,641 @@
+{
+  "programType": "contract",
+  "specVersion": "1",
+  "encodingVersion": "1",
+  "concreteTypes": [
+    {
+      "type": "()",
+      "concreteTypeId": "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d"
+    },
+    {
+      "type": "enum std::identity::Identity",
+      "concreteTypeId": "ab7cd04e05be58e3fc15d424c2c4a57f824a2a2d97d67252440a3925ebdc1335",
+      "metadataTypeId": 2
+    },
+    {
+      "type": "str",
+      "concreteTypeId": "8c25cb3686462e9a86d2883c5688a22fe738b0bbc85f458d2d2b5f3f667c6d5a"
+    },
+    {
+      "type": "struct events::StakeEvent",
+      "concreteTypeId": "971df1a13fb4c3294748768bc549421c23aeb95fa70c9dd0b0e980a61a31a27e",
+      "metadataTypeId": 3
+    },
+    {
+      "type": "struct events::UnstakeEvent",
+      "concreteTypeId": "f205d319828fe2d29c62ce1d869346d4291ff46474697924876953866d3ea0ec",
+      "metadataTypeId": 4
+    },
+    {
+      "type": "struct libraries::fpt_staking_interface::ReadStorage",
+      "concreteTypeId": "904c0572d468eff971625d1128ab78e0d942635e2518ea1694091b0617301697",
+      "metadataTypeId": 5
+    },
+    {
+      "type": "struct std::asset_id::AssetId",
+      "concreteTypeId": "c0710b6731b1dd59799cf6bef33eee3b3b04a2e40e80a0724090215bbf2ca974",
+      "metadataTypeId": 7
+    },
+    {
+      "type": "struct std::contract_id::ContractId",
+      "concreteTypeId": "29c10735d33b5159f0c71ee1dbd17b36a3e69e41f00fab0d42e1bd9f428d8a54",
+      "metadataTypeId": 8
+    },
+    {
+      "type": "u64",
+      "concreteTypeId": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
+    }
+  ],
+  "metadataTypes": [
+    {
+      "type": "b256",
+      "metadataTypeId": 0
+    },
+    {
+      "type": "bool",
+      "metadataTypeId": 1
+    },
+    {
+      "type": "enum std::identity::Identity",
+      "metadataTypeId": 2,
+      "components": [
+        {
+          "name": "Address",
+          "typeId": 6
+        },
+        {
+          "name": "ContractId",
+          "typeId": 8
+        }
+      ]
+    },
+    {
+      "type": "struct events::StakeEvent",
+      "metadataTypeId": 3,
+      "components": [
+        {
+          "name": "user",
+          "typeId": 2
+        },
+        {
+          "name": "amount",
+          "typeId": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
+        }
+      ]
+    },
+    {
+      "type": "struct events::UnstakeEvent",
+      "metadataTypeId": 4,
+      "components": [
+        {
+          "name": "user",
+          "typeId": 2
+        },
+        {
+          "name": "amount",
+          "typeId": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
+        }
+      ]
+    },
+    {
+      "type": "struct libraries::fpt_staking_interface::ReadStorage",
+      "metadataTypeId": 5,
+      "components": [
+        {
+          "name": "f_usdf",
+          "typeId": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
+        },
+        {
+          "name": "total_fpt_staked",
+          "typeId": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
+        },
+        {
+          "name": "protocol_manager_address",
+          "typeId": 8
+        },
+        {
+          "name": "borrower_operations_address",
+          "typeId": 8
+        },
+        {
+          "name": "fpt_asset_id",
+          "typeId": 7
+        },
+        {
+          "name": "usdf_asset_id",
+          "typeId": 7
+        },
+        {
+          "name": "is_initialized",
+          "typeId": 1
+        }
+      ]
+    },
+    {
+      "type": "struct std::address::Address",
+      "metadataTypeId": 6,
+      "components": [
+        {
+          "name": "bits",
+          "typeId": 0
+        }
+      ]
+    },
+    {
+      "type": "struct std::asset_id::AssetId",
+      "metadataTypeId": 7,
+      "components": [
+        {
+          "name": "bits",
+          "typeId": 0
+        }
+      ]
+    },
+    {
+      "type": "struct std::contract_id::ContractId",
+      "metadataTypeId": 8,
+      "components": [
+        {
+          "name": "bits",
+          "typeId": 0
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "inputs": [
+        {
+          "name": "asset_address",
+          "concreteTypeId": "c0710b6731b1dd59799cf6bef33eee3b3b04a2e40e80a0724090215bbf2ca974"
+        }
+      ],
+      "name": "add_asset",
+      "output": "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d",
+      "attributes": [
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @notice Adds a new asset to the staking contract"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @dev Can only be called by the protocol manager, called in the `register_asset` fn"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @param asset_address The AssetId of the new asset to be added"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @custom:access-control Protocol Manager only"
+          ]
+        },
+        {
+          "name": "storage",
+          "arguments": [
+            "read",
+            "write"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "name": "id",
+          "concreteTypeId": "ab7cd04e05be58e3fc15d424c2c4a57f824a2a2d97d67252440a3925ebdc1335"
+        },
+        {
+          "name": "asset_address",
+          "concreteTypeId": "c0710b6731b1dd59799cf6bef33eee3b3b04a2e40e80a0724090215bbf2ca974"
+        }
+      ],
+      "name": "get_pending_asset_gain",
+      "output": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+      "attributes": [
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @notice Retrieves the pending asset gain for a specific user and asset"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @dev Calculates the unrealized asset rewards for the given user and asset"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @param id The Identity of the user"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @param asset_address The AssetId of the asset to check"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @return The amount of pending asset gain for the user"
+          ]
+        },
+        {
+          "name": "storage",
+          "arguments": [
+            "read"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "name": "id",
+          "concreteTypeId": "ab7cd04e05be58e3fc15d424c2c4a57f824a2a2d97d67252440a3925ebdc1335"
+        }
+      ],
+      "name": "get_pending_usdf_gain",
+      "output": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+      "attributes": [
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @notice Retrieves the pending USDF gain for a specific user"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @dev Calculates the unrealized USDF rewards for the given user"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @param id The Identity of the user"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @return The amount of pending USDF gain for the user"
+          ]
+        },
+        {
+          "name": "storage",
+          "arguments": [
+            "read"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "name": "id",
+          "concreteTypeId": "ab7cd04e05be58e3fc15d424c2c4a57f824a2a2d97d67252440a3925ebdc1335"
+        }
+      ],
+      "name": "get_staking_balance",
+      "output": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+      "attributes": [
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @notice Retrieves the staking balance for a specific user"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @dev Returns the amount of FPT tokens staked by the given user"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @param id The Identity of the user"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @return The staking balance of the user in FPT tokens"
+          ]
+        },
+        {
+          "name": "storage",
+          "arguments": [
+            "read"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [],
+      "name": "get_storage",
+      "output": "904c0572d468eff971625d1128ab78e0d942635e2518ea1694091b0617301697",
+      "attributes": [
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @notice Retrieves the current storage state of the FPT Staking contract"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @dev Returns a ReadStorage struct containing key contract parameters and state variables"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @return ReadStorage A struct containing f_usdf, total_fpt_staked, protocol_manager_address,"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            "         borrower_operations_address, fpt_asset_id, usdf_asset_id, and is_initialized"
+          ]
+        },
+        {
+          "name": "storage",
+          "arguments": [
+            "read"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "name": "asset_fee_amount",
+          "concreteTypeId": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
+        },
+        {
+          "name": "asset_address",
+          "concreteTypeId": "c0710b6731b1dd59799cf6bef33eee3b3b04a2e40e80a0724090215bbf2ca974"
+        }
+      ],
+      "name": "increase_f_asset",
+      "output": "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d",
+      "attributes": [
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @notice Increases the F_Asset value for a specific asset based on the asset fee amount"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @dev Can only be called by the Protocol Manager contract"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @dev If total FPT staked is greater than 0, calculates and adds asset fee per FPT staked"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @param asset_fee_amount The amount of asset fee to be distributed"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @param asset_address The AssetId of the asset for which the fee is being distributed"
+          ]
+        },
+        {
+          "name": "storage",
+          "arguments": [
+            "read",
+            "write"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "name": "usdf_fee_amount",
+          "concreteTypeId": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
+        }
+      ],
+      "name": "increase_f_usdf",
+      "output": "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d",
+      "attributes": [
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @notice Increases the F_USDF value based on USDF fee amount"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @dev Can only be called by the Borrower Operations contract"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @dev If total FPT staked is greater than 0, calculates and adds USDF fee per FPT staked"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @param usdf_fee_amount The amount of USDF fee to be distributed"
+          ]
+        },
+        {
+          "name": "storage",
+          "arguments": [
+            "read",
+            "write"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "name": "protocol_manager_address",
+          "concreteTypeId": "29c10735d33b5159f0c71ee1dbd17b36a3e69e41f00fab0d42e1bd9f428d8a54"
+        },
+        {
+          "name": "borrower_operations_address",
+          "concreteTypeId": "29c10735d33b5159f0c71ee1dbd17b36a3e69e41f00fab0d42e1bd9f428d8a54"
+        },
+        {
+          "name": "fpt_asset_id",
+          "concreteTypeId": "c0710b6731b1dd59799cf6bef33eee3b3b04a2e40e80a0724090215bbf2ca974"
+        },
+        {
+          "name": "usdf_asset_id",
+          "concreteTypeId": "c0710b6731b1dd59799cf6bef33eee3b3b04a2e40e80a0724090215bbf2ca974"
+        }
+      ],
+      "name": "initialize",
+      "output": "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d",
+      "attributes": [
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @notice Initializes the FPT Staking contract with essential addresses and tokens"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @dev Can only be called once, sets up the contract for staking operations"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @param protocol_manager_address The address of the protocol manager contract"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @param borrower_operations_address The address of the borrower operations contract"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @param fpt_asset_id The asset ID of the FPT token"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @param usdf_asset_id The asset ID of the USDF token"
+          ]
+        },
+        {
+          "name": "storage",
+          "arguments": [
+            "read",
+            "write"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [],
+      "name": "stake",
+      "output": "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d",
+      "attributes": [
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @notice Allows users to stake their FPT tokens"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @dev Handles staking, updates user's stake, distributes pending rewards, and updates snapshots"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @custom:payable This function is payable and expects FPT tokens to be sent with the transaction"
+          ]
+        },
+        {
+          "name": "storage",
+          "arguments": [
+            "read",
+            "write"
+          ]
+        },
+        {
+          "name": "payable",
+          "arguments": []
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "name": "amount",
+          "concreteTypeId": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
+        }
+      ],
+      "name": "unstake",
+      "output": "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d",
+      "attributes": [
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @notice Allows users to unstake their FPT tokens"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @dev Handles unstaking, updates user's stake, distributes pending rewards, and updates snapshots"
+          ]
+        },
+        {
+          "name": "doc-comment",
+          "arguments": [
+            " @param amount The amount of FPT tokens to unstake"
+          ]
+        },
+        {
+          "name": "storage",
+          "arguments": [
+            "read",
+            "write"
+          ]
+        }
+      ]
+    }
+  ],
+  "loggedTypes": [
+    {
+      "logId": "10098701174489624218",
+      "concreteTypeId": "8c25cb3686462e9a86d2883c5688a22fe738b0bbc85f458d2d2b5f3f667c6d5a"
+    },
+    {
+      "logId": "10889125148912567081",
+      "concreteTypeId": "971df1a13fb4c3294748768bc549421c23aeb95fa70c9dd0b0e980a61a31a27e"
+    },
+    {
+      "logId": "17439577238580224722",
+      "concreteTypeId": "f205d319828fe2d29c62ce1d869346d4291ff46474697924876953866d3ea0ec"
+    }
+  ],
+  "messagesTypes": [],
+  "configurables": [
+    {
+      "name": "INITIALIZER",
+      "concreteTypeId": "ab7cd04e05be58e3fc15d424c2c4a57f824a2a2d97d67252440a3925ebdc1335",
+      "offset": 42872
+    }
+  ]
+}

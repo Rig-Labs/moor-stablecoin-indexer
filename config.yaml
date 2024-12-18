@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=./node_modules/envio/fuel.schema.json
+name: envio-indexer
+ecosystem: fuel
+networks:
+  - id: 9889
+    start_block: 0
+    contracts:
+      - name: BorrowOperations
+        address:
+          - 0xeda02ae9cbe68183ee86a0b5e7a475215fbafc307e5e6506f970fa6dcc15d62e
+        abi_file_path: abis/borrowoperations-abi.json
+        handler: src/EventHandlers.ts
+        events:
+          - name: OpenTroveEvent
+            logId: "17081261052530365109"
+          - name: CloseTroveEvent
+            logId: "2361378587801497692"
+          - name: AdjustTroveEvent
+            logId: "6739255540342412543"
+      - name: FPTStaking
+        address:
+          - 0xb86e9d843da16084fbfc06400f4d86ca2432f2487bf5ac6b776cab5449b1307f
+        abi_file_path: abis/fptstaking-abi.json
+        handler: src/EventHandlers.ts
+        events:
+          - name: StakeEvent
+            logId: "10889125148912567081"
+          - name: UnstakeEvent
+            logId: "17439577238580224722"
+      - name: StabilityPool
+        address:
+          - 0x90ae00be8f594c23ea87941a70574cd954fe1e1713470123b5111d6b04c37aef
+        abi_file_path: abis/stabilitypool-abi.json
+        handler: src/EventHandlers.ts
+        events:
+          - name: StabilityPoolLiquidationEvent
+            logId: "4532511178510817406"
+          - name: ProvideToStabilityPoolEvent
+            logId: "11918694519390339650"
+          - name: WithdrawFromStabilityPoolEvent
+            logId: "9108112476981792364"
+      - name: USDF
+        address:
+          - 0x32deed96558e9572abce544aaf256724aee60517eeb1fabe76e86e4790c888b0
+        abi_file_path: abis/usdf-abi.json
+        handler: src/EventHandlers.ts
+        events:
+          - name: TotalSupplyEvent
+            logId: "17462098202904023478"
+          - name: Mint
+          - name: Burn
+      - name: TroveManager
+        address:
+          - 0x8b90326e5e82ca3b0a2d0fa0ef42023d2df25360e538d5833e94599a1178c64f
+          - 0x9eea94d170cfb8a1831e7c86e5167acad3e3d1166ddfc81c725377267622ec8e
+          - 0x5e8956e557b1e0bc79d7064222d1e853163ff8edc928be8f5ec32c1abd13df7e
+          - 0x4cdbfd7958cffe4562357104271c23228139e5a77933f0d4795f52ca7b715353
+          - 0xd7fce11644efb7a878e99229e9ee2f6de93ebec23647a0e3fb67cfbf03233264
+          - 0xc20ae74bfb15fb05652d911c156767051aa0c9ee918668cc3db45094106c8388
+        abi_file_path: abis/trovemanager-abi.json
+        handler: src/EventHandlers.ts
+        events:
+          - name: TrovePartialLiquidationEvent
+            logId: "1415805281139303833"
+          - name: TroveFullLiquidationEvent
+            logId: "3901993240860012357"
+          - name: RedemptionEvent
+            logId: "13563887075398870426"
