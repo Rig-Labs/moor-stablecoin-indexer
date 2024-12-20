@@ -216,9 +216,9 @@ export type Block_t = {
 };
 
 export type AggregatedBlock_t = {
-  readonly height: number; 
+  readonly time: number; 
   readonly id: string; 
-  readonly time: number
+  readonly height: number
 };
 
 export type AggregatedTransaction_t = { readonly id: string };

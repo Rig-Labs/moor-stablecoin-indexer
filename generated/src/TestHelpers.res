@@ -171,15 +171,15 @@ module EventFunctions = {
   module MockBlock = {
     @genType
     type t = {
-      height?: int,
-      id?: string,
       time?: int,
+      id?: string,
+      height?: int,
     }
 
     let toBlock = (_mock: t) => {
-      height: _mock.height->Belt.Option.getWithDefault(0),
-      id: _mock.id->Belt.Option.getWithDefault("foo"),
       time: _mock.time->Belt.Option.getWithDefault(0),
+      id: _mock.id->Belt.Option.getWithDefault("foo"),
+      height: _mock.height->Belt.Option.getWithDefault(0),
     }->(Utils.magic: Types.AggregatedBlock.t => Internal.eventBlock)
   }
 

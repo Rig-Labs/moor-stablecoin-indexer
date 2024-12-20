@@ -103,6 +103,7 @@ let publicConfig = ChainMap.fromArrayUnsafe([
             "0x4cdbfd7958cffe4562357104271c23228139e5a77933f0d4795f52ca7b715353",
             "0xd7fce11644efb7a878e99229e9ee2f6de93ebec23647a0e3fb67cfbf03233264",
             "0xc20ae74bfb15fb05652d911c156767051aa0c9ee918668cc3db45094106c8388",
+            "0xde9d3793b761ec829edb5a3c48200f30dc4877e67e28f7194c8b457bbb41a1ef",
           ],
           events: [
             Types.TroveManager.TrovePartialLiquidationEvent.name,

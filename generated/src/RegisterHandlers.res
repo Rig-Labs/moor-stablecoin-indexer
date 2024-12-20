@@ -113,6 +113,8 @@ let registerContractHandlers = (
               ,
               "0xc20ae74bfb15fb05652d911c156767051aa0c9ee918668cc3db45094106c8388"->Address.unsafeFromString
               ,
+              "0xde9d3793b761ec829edb5a3c48200f30dc4877e67e28f7194c8b457bbb41a1ef"->Address.unsafeFromString
+              ,
             ],
             events: [
               module(Types.TroveManager.TrovePartialLiquidationEvent),

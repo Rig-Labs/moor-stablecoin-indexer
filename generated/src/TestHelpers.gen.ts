@@ -75,9 +75,9 @@ export type EventFunctions_eventProcessorArgs<event> = {
 export type EventFunctions_eventProcessor<event> = (_1:EventFunctions_eventProcessorArgs<event>) => Promise<TestHelpers_MockDb_t>;
 
 export type EventFunctions_MockBlock_t = {
-  readonly height?: number; 
+  readonly time?: number; 
   readonly id?: string; 
-  readonly time?: number
+  readonly height?: number
 };
 
 export type EventFunctions_MockTransaction_t = { readonly id?: string };

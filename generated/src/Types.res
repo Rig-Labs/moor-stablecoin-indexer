@@ -168,8 +168,8 @@ module Block = {
 
 module AggregatedBlock = {
   @genType
-  type t = {height: int, id: string, time: int}
-  let schema = S.object((s): t => {height: s.field("height", GqlDbCustomTypes.Int.schema), id: s.field("id", S.string), time: s.field("time", GqlDbCustomTypes.Int.schema)})
+  type t = {time: int, id: string, height: int}
+  let schema = S.object((s): t => {time: s.field("time", GqlDbCustomTypes.Int.schema), id: s.field("id", S.string), height: s.field("height", GqlDbCustomTypes.Int.schema)})
     ->(Utils.magic: S.t<t> => S.t<Internal.eventBlock>)
 }
 module AggregatedTransaction = {
