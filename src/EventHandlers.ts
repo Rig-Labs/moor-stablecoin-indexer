@@ -53,6 +53,9 @@ function identityToStr(identity: Identity): IdentityIsContract {
 // METH
 // tm: 0xc20ae74bfb15fb05652d911c156767051aa0c9ee918668cc3db45094106c8388
 // asset: 0xafd219f513317b1750783c6581f55530d6cf189a5863fd18bd1b3ffcec1714b4
+// FUEL
+// tm: 0xde9d3793b761ec829edb5a3c48200f30dc4877e67e28f7194c8b457bbb41a1ef
+// asset: 0x1d5d97005e41cae2187a895fd8eab0506111e0e2f3331cd3912c15c24e3c1d82
 
 function assetIdToStr(assetId: string): string {
   switch (assetId) {
@@ -68,6 +71,8 @@ function assetIdToStr(assetId: string): string {
       return "RSETH";
     case "0xafd219f513317b1750783c6581f55530d6cf189a5863fd18bd1b3ffcec1714b4":
       return "METH";
+    case "0x1d5d97005e41cae2187a895fd8eab0506111e0e2f3331cd3912c15c24e3c1d82":
+      return "FUEL";
     default:
       return "UNKNOWN";
   }
@@ -75,18 +80,20 @@ function assetIdToStr(assetId: string): string {
 
 function troveManagerContractIdToStr(troveManagerContractId: string): string {
   switch (troveManagerContractId) {
-    case "8b90326e5e82ca3b0a2d0fa0ef42023d2df25360e538d5833e94599a1178c64f":
+    case "0x8b90326e5e82ca3b0a2d0fa0ef42023d2df25360e538d5833e94599a1178c64f":
       return "ETH";
-    case "9eea94d170cfb8a1831e7c86e5167acad3e3d1166ddfc81c725377267622ec8e":
+    case "0x9eea94d170cfb8a1831e7c86e5167acad3e3d1166ddfc81c725377267622ec8e":
       return "WSTETH";
-    case "5e8956e557b1e0bc79d7064222d1e853163ff8edc928be8f5ec32c1abd13df7e":
+    case "0x5e8956e557b1e0bc79d7064222d1e853163ff8edc928be8f5ec32c1abd13df7e":
       return "EZETH";
-    case "4cdbfd7958cffe4562357104271c23228139e5a77933f0d4795f52ca7b715353":
+    case "0x4cdbfd7958cffe4562357104271c23228139e5a77933f0d4795f52ca7b715353":
       return "WEETH";
-    case "d7fce11644efb7a878e99229e9ee2f6de93ebec23647a0e3fb67cfbf03233264":
+    case "0xd7fce11644efb7a878e99229e9ee2f6de93ebec23647a0e3fb67cfbf03233264":
       return "RSETH";
-    case "c20ae74bfb15fb05652d911c156767051aa0c9ee918668cc3db45094106c8388":
+    case "0xc20ae74bfb15fb05652d911c156767051aa0c9ee918668cc3db45094106c8388":
       return "METH";
+    case "0xde9d3793b761ec829edb5a3c48200f30dc4877e67e28f7194c8b457bbb41a1ef":
+      return "FUEL";
     default:
       return "UNKNOWN";
   }
@@ -223,7 +230,7 @@ TroveManager.TrovePartialLiquidationEvent.handler(
   async ({ event, context }) => {
     const entity: TroveManager_TrovePartialLiquidationEvent = {
       id: `${event.chainId}_${event.block.height}_${event.logIndex}`,
-      asset: event.srcAddress,
+      asset: troveManagerContractIdToStr(event.srcAddress),
       identity: identityToStr(event.params.borrower)[0],
       remaining_collateral: event.params.remaining_collateral,
       remaining_debt: event.params.remaining_debt,
@@ -238,7 +245,7 @@ TroveManager.TrovePartialLiquidationEvent.handler(
 TroveManager.TroveFullLiquidationEvent.handler(async ({ event, context }) => {
   const entity: TroveManager_TroveFullLiquidationEvent = {
     id: `${event.chainId}_${event.block.height}_${event.logIndex}`,
-    asset: event.srcAddress,
+    asset: troveManagerContractIdToStr(event.srcAddress),
     identity: identityToStr(event.params.borrower)[0],
     collateral: event.params.collateral,
     debt: event.params.debt,
@@ -253,7 +260,7 @@ TroveManager.RedemptionEvent.handler(async ({ event, context }) => {
   const entity: TroveManager_RedemptionEvent = {
     id: `${event.chainId}_${event.block.height}_${event.logIndex}`,
     identity: identityToStr(event.params.borrower)[0],
-    asset: event.srcAddress,
+    asset: troveManagerContractIdToStr(event.srcAddress),
     collateral_amount: event.params.collateral_amount,
     collateral_price: event.params.collateral_price,
     usdf_amount: event.params.usdf_amount,
