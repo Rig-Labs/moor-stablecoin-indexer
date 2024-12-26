@@ -125,7 +125,6 @@ BorrowOperations.OpenTroveEvent.handler(async ({ event, context }) => {
 });
 
 BorrowOperations.CloseTroveEvent.handler(async ({ event, context }) => {
-  console.log(event.params.asset_id.bits);
   const entity: BorrowOperations_CloseTroveEvent = {
     id: `${event.chainId}_${event.block.height}_${event.logIndex}`,
     identity: identityToStr(event.params.user)[0],
