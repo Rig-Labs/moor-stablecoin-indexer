@@ -47,26 +47,6 @@ export type BorrowOperations_OpenTroveEvent_t = {
 
 export type BorrowOperations_OpenTroveEvent_indexedFieldOperations = { readonly asset: whereOperations<BorrowOperations_OpenTroveEvent_t,string>; readonly identity: whereOperations<BorrowOperations_OpenTroveEvent_t,string> };
 
-export type FPTStaking_StakeEvent_t = {
-  readonly amount: bigint; 
-  readonly id: id; 
-  readonly identity: string; 
-  readonly timestamp: number; 
-  readonly txHash: string
-};
-
-export type FPTStaking_StakeEvent_indexedFieldOperations = { readonly identity: whereOperations<FPTStaking_StakeEvent_t,string> };
-
-export type FPTStaking_UnstakeEvent_t = {
-  readonly amount: bigint; 
-  readonly id: id; 
-  readonly identity: string; 
-  readonly timestamp: number; 
-  readonly txHash: string
-};
-
-export type FPTStaking_UnstakeEvent_indexedFieldOperations = { readonly identity: whereOperations<FPTStaking_UnstakeEvent_t,string> };
-
 export type StabilityPool_ProvideToStabilityPoolEvent_t = {
   readonly amount: bigint; 
   readonly compounded_amount: bigint; 
@@ -108,7 +88,7 @@ export type TroveManager_RedemptionEvent_t = {
   readonly identity: string; 
   readonly timestamp: number; 
   readonly txHash: string; 
-  readonly usdf_amount: bigint
+  readonly usdm_amount: bigint
 };
 
 export type TroveManager_RedemptionEvent_indexedFieldOperations = { readonly asset: whereOperations<TroveManager_RedemptionEvent_t,string>; readonly identity: whereOperations<TroveManager_RedemptionEvent_t,string> };
@@ -137,29 +117,29 @@ export type TroveManager_TrovePartialLiquidationEvent_t = {
 
 export type TroveManager_TrovePartialLiquidationEvent_indexedFieldOperations = { readonly asset: whereOperations<TroveManager_TrovePartialLiquidationEvent_t,string>; readonly identity: whereOperations<TroveManager_TrovePartialLiquidationEvent_t,string> };
 
-export type USDF_Burn_t = {
+export type USDM_Burn_t = {
   readonly amount: bigint; 
   readonly id: id; 
   readonly timestamp: number; 
   readonly txHash: string
 };
 
-export type USDF_Burn_indexedFieldOperations = {};
+export type USDM_Burn_indexedFieldOperations = {};
 
-export type USDF_Mint_t = {
+export type USDM_Mint_t = {
   readonly amount: bigint; 
   readonly id: id; 
   readonly timestamp: number; 
   readonly txHash: string
 };
 
-export type USDF_Mint_indexedFieldOperations = {};
+export type USDM_Mint_indexedFieldOperations = {};
 
-export type USDF_TotalSupplyEvent_t = {
+export type USDM_TotalSupplyEvent_t = {
   readonly amount: bigint; 
   readonly id: id; 
   readonly timestamp: number; 
   readonly txHash: string
 };
 
-export type USDF_TotalSupplyEvent_indexedFieldOperations = {};
+export type USDM_TotalSupplyEvent_indexedFieldOperations = {};

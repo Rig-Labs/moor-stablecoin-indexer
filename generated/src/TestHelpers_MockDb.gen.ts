@@ -15,10 +15,6 @@ import type {DynamicContractRegistry_t as TablesStatic_DynamicContractRegistry_t
 
 import type {EventSyncState_t as TablesStatic_EventSyncState_t} from '../src/db/TablesStatic.gen';
 
-import type {FPTStaking_StakeEvent_t as Entities_FPTStaking_StakeEvent_t} from '../src/db/Entities.gen';
-
-import type {FPTStaking_UnstakeEvent_t as Entities_FPTStaking_UnstakeEvent_t} from '../src/db/Entities.gen';
-
 import type {RawEvents_t as TablesStatic_RawEvents_t} from '../src/db/TablesStatic.gen';
 
 import type {StabilityPool_ProvideToStabilityPoolEvent_t as Entities_StabilityPool_ProvideToStabilityPoolEvent_t} from '../src/db/Entities.gen';
@@ -33,11 +29,11 @@ import type {TroveManager_TroveFullLiquidationEvent_t as Entities_TroveManager_T
 
 import type {TroveManager_TrovePartialLiquidationEvent_t as Entities_TroveManager_TrovePartialLiquidationEvent_t} from '../src/db/Entities.gen';
 
-import type {USDF_Burn_t as Entities_USDF_Burn_t} from '../src/db/Entities.gen';
+import type {USDM_Burn_t as Entities_USDM_Burn_t} from '../src/db/Entities.gen';
 
-import type {USDF_Mint_t as Entities_USDF_Mint_t} from '../src/db/Entities.gen';
+import type {USDM_Mint_t as Entities_USDM_Mint_t} from '../src/db/Entities.gen';
 
-import type {USDF_TotalSupplyEvent_t as Entities_USDF_TotalSupplyEvent_t} from '../src/db/Entities.gen';
+import type {USDM_TotalSupplyEvent_t as Entities_USDM_TotalSupplyEvent_t} from '../src/db/Entities.gen';
 
 import type {chainId as Types_chainId} from './Types.gen';
 
@@ -60,17 +56,15 @@ export type entities = {
   readonly BorrowOperations_AdjustTroveEvent: entityStoreOperations<Entities_BorrowOperations_AdjustTroveEvent_t>; 
   readonly BorrowOperations_CloseTroveEvent: entityStoreOperations<Entities_BorrowOperations_CloseTroveEvent_t>; 
   readonly BorrowOperations_OpenTroveEvent: entityStoreOperations<Entities_BorrowOperations_OpenTroveEvent_t>; 
-  readonly FPTStaking_StakeEvent: entityStoreOperations<Entities_FPTStaking_StakeEvent_t>; 
-  readonly FPTStaking_UnstakeEvent: entityStoreOperations<Entities_FPTStaking_UnstakeEvent_t>; 
   readonly StabilityPool_ProvideToStabilityPoolEvent: entityStoreOperations<Entities_StabilityPool_ProvideToStabilityPoolEvent_t>; 
   readonly StabilityPool_StabilityPoolLiquidationEvent: entityStoreOperations<Entities_StabilityPool_StabilityPoolLiquidationEvent_t>; 
   readonly StabilityPool_WithdrawFromStabilityPoolEvent: entityStoreOperations<Entities_StabilityPool_WithdrawFromStabilityPoolEvent_t>; 
   readonly TroveManager_RedemptionEvent: entityStoreOperations<Entities_TroveManager_RedemptionEvent_t>; 
   readonly TroveManager_TroveFullLiquidationEvent: entityStoreOperations<Entities_TroveManager_TroveFullLiquidationEvent_t>; 
   readonly TroveManager_TrovePartialLiquidationEvent: entityStoreOperations<Entities_TroveManager_TrovePartialLiquidationEvent_t>; 
-  readonly USDF_Burn: entityStoreOperations<Entities_USDF_Burn_t>; 
-  readonly USDF_Mint: entityStoreOperations<Entities_USDF_Mint_t>; 
-  readonly USDF_TotalSupplyEvent: entityStoreOperations<Entities_USDF_TotalSupplyEvent_t>
+  readonly USDM_Burn: entityStoreOperations<Entities_USDM_Burn_t>; 
+  readonly USDM_Mint: entityStoreOperations<Entities_USDM_Mint_t>; 
+  readonly USDM_TotalSupplyEvent: entityStoreOperations<Entities_USDM_TotalSupplyEvent_t>
 };
 
 export type entityStoreOperations<entity> = storeOperations<string,entity>;

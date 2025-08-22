@@ -284,46 +284,6 @@ module BorrowOperations = {
 }
 
 
-module FPTStaking = {
-  module StakeEvent = {
-    @genType
-    let processEvent: EventFunctions.eventProcessor<Types.FPTStaking.StakeEvent.event> = EventFunctions.makeEventProcessor(
-      ~contractName=Types.FPTStaking.contractName,
-      ~eventName=Types.FPTStaking.StakeEvent.name,
-      ~handlerRegister=Types.FPTStaking.StakeEvent.handlerRegister,
-      ~paramsRawEventSchema=Types.FPTStaking.StakeEvent.paramsRawEventSchema,
-    )
-
-    @genType
-    let mockData = (params) => {
-      EventFunctions.makeEventMocker(
-        ~params=params->(Utils.magic: Types.FPTStaking.StakeEvent.eventArgs => Internal.eventParams),
-        ~mockEventData=None
-      )->(Utils.magic: Internal.event => Types.FPTStaking.StakeEvent.event)
-    }
-  }
-
-  module UnstakeEvent = {
-    @genType
-    let processEvent: EventFunctions.eventProcessor<Types.FPTStaking.UnstakeEvent.event> = EventFunctions.makeEventProcessor(
-      ~contractName=Types.FPTStaking.contractName,
-      ~eventName=Types.FPTStaking.UnstakeEvent.name,
-      ~handlerRegister=Types.FPTStaking.UnstakeEvent.handlerRegister,
-      ~paramsRawEventSchema=Types.FPTStaking.UnstakeEvent.paramsRawEventSchema,
-    )
-
-    @genType
-    let mockData = (params) => {
-      EventFunctions.makeEventMocker(
-        ~params=params->(Utils.magic: Types.FPTStaking.UnstakeEvent.eventArgs => Internal.eventParams),
-        ~mockEventData=None
-      )->(Utils.magic: Internal.event => Types.FPTStaking.UnstakeEvent.event)
-    }
-  }
-
-}
-
-
 module StabilityPool = {
   module StabilityPoolLiquidationEvent = {
     @genType
@@ -440,58 +400,58 @@ module TroveManager = {
 }
 
 
-module USDF = {
+module USDM = {
   module TotalSupplyEvent = {
     @genType
-    let processEvent: EventFunctions.eventProcessor<Types.USDF.TotalSupplyEvent.event> = EventFunctions.makeEventProcessor(
-      ~contractName=Types.USDF.contractName,
-      ~eventName=Types.USDF.TotalSupplyEvent.name,
-      ~handlerRegister=Types.USDF.TotalSupplyEvent.handlerRegister,
-      ~paramsRawEventSchema=Types.USDF.TotalSupplyEvent.paramsRawEventSchema,
+    let processEvent: EventFunctions.eventProcessor<Types.USDM.TotalSupplyEvent.event> = EventFunctions.makeEventProcessor(
+      ~contractName=Types.USDM.contractName,
+      ~eventName=Types.USDM.TotalSupplyEvent.name,
+      ~handlerRegister=Types.USDM.TotalSupplyEvent.handlerRegister,
+      ~paramsRawEventSchema=Types.USDM.TotalSupplyEvent.paramsRawEventSchema,
     )
 
     @genType
     let mockData = (params) => {
       EventFunctions.makeEventMocker(
-        ~params=params->(Utils.magic: Types.USDF.TotalSupplyEvent.eventArgs => Internal.eventParams),
+        ~params=params->(Utils.magic: Types.USDM.TotalSupplyEvent.eventArgs => Internal.eventParams),
         ~mockEventData=None
-      )->(Utils.magic: Internal.event => Types.USDF.TotalSupplyEvent.event)
+      )->(Utils.magic: Internal.event => Types.USDM.TotalSupplyEvent.event)
     }
   }
 
   module Mint = {
     @genType
-    let processEvent: EventFunctions.eventProcessor<Types.USDF.Mint.event> = EventFunctions.makeEventProcessor(
-      ~contractName=Types.USDF.contractName,
-      ~eventName=Types.USDF.Mint.name,
-      ~handlerRegister=Types.USDF.Mint.handlerRegister,
-      ~paramsRawEventSchema=Types.USDF.Mint.paramsRawEventSchema,
+    let processEvent: EventFunctions.eventProcessor<Types.USDM.Mint.event> = EventFunctions.makeEventProcessor(
+      ~contractName=Types.USDM.contractName,
+      ~eventName=Types.USDM.Mint.name,
+      ~handlerRegister=Types.USDM.Mint.handlerRegister,
+      ~paramsRawEventSchema=Types.USDM.Mint.paramsRawEventSchema,
     )
 
     @genType
     let mockData = (params) => {
       EventFunctions.makeEventMocker(
-        ~params=params->(Utils.magic: Types.USDF.Mint.eventArgs => Internal.eventParams),
+        ~params=params->(Utils.magic: Types.USDM.Mint.eventArgs => Internal.eventParams),
         ~mockEventData=None
-      )->(Utils.magic: Internal.event => Types.USDF.Mint.event)
+      )->(Utils.magic: Internal.event => Types.USDM.Mint.event)
     }
   }
 
   module Burn = {
     @genType
-    let processEvent: EventFunctions.eventProcessor<Types.USDF.Burn.event> = EventFunctions.makeEventProcessor(
-      ~contractName=Types.USDF.contractName,
-      ~eventName=Types.USDF.Burn.name,
-      ~handlerRegister=Types.USDF.Burn.handlerRegister,
-      ~paramsRawEventSchema=Types.USDF.Burn.paramsRawEventSchema,
+    let processEvent: EventFunctions.eventProcessor<Types.USDM.Burn.event> = EventFunctions.makeEventProcessor(
+      ~contractName=Types.USDM.contractName,
+      ~eventName=Types.USDM.Burn.name,
+      ~handlerRegister=Types.USDM.Burn.handlerRegister,
+      ~paramsRawEventSchema=Types.USDM.Burn.paramsRawEventSchema,
     )
 
     @genType
     let mockData = (params) => {
       EventFunctions.makeEventMocker(
-        ~params=params->(Utils.magic: Types.USDF.Burn.eventArgs => Internal.eventParams),
+        ~params=params->(Utils.magic: Types.USDM.Burn.eventArgs => Internal.eventParams),
         ~mockEventData=None
-      )->(Utils.magic: Internal.event => Types.USDF.Burn.event)
+      )->(Utils.magic: Internal.event => Types.USDM.Burn.event)
     }
   }
 

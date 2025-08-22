@@ -8,10 +8,9 @@ type id = string
 type contractRegistrations = {
   // TODO: only add contracts we've registered for the event in the config
   addBorrowOperations: (Address.t) => unit,
-  addFPTStaking: (Address.t) => unit,
   addStabilityPool: (Address.t) => unit,
   addTroveManager: (Address.t) => unit,
-  addUSDF: (Address.t) => unit,
+  addUSDM: (Address.t) => unit,
 }
 
 @genType
@@ -26,17 +25,15 @@ type loaderContext = {
   @as("BorrowOperations_AdjustTroveEvent") borrowOperations_AdjustTroveEvent: entityLoaderContext<Entities.BorrowOperations_AdjustTroveEvent.t, Entities.BorrowOperations_AdjustTroveEvent.indexedFieldOperations>,
   @as("BorrowOperations_CloseTroveEvent") borrowOperations_CloseTroveEvent: entityLoaderContext<Entities.BorrowOperations_CloseTroveEvent.t, Entities.BorrowOperations_CloseTroveEvent.indexedFieldOperations>,
   @as("BorrowOperations_OpenTroveEvent") borrowOperations_OpenTroveEvent: entityLoaderContext<Entities.BorrowOperations_OpenTroveEvent.t, Entities.BorrowOperations_OpenTroveEvent.indexedFieldOperations>,
-  @as("FPTStaking_StakeEvent") fPTStaking_StakeEvent: entityLoaderContext<Entities.FPTStaking_StakeEvent.t, Entities.FPTStaking_StakeEvent.indexedFieldOperations>,
-  @as("FPTStaking_UnstakeEvent") fPTStaking_UnstakeEvent: entityLoaderContext<Entities.FPTStaking_UnstakeEvent.t, Entities.FPTStaking_UnstakeEvent.indexedFieldOperations>,
   @as("StabilityPool_ProvideToStabilityPoolEvent") stabilityPool_ProvideToStabilityPoolEvent: entityLoaderContext<Entities.StabilityPool_ProvideToStabilityPoolEvent.t, Entities.StabilityPool_ProvideToStabilityPoolEvent.indexedFieldOperations>,
   @as("StabilityPool_StabilityPoolLiquidationEvent") stabilityPool_StabilityPoolLiquidationEvent: entityLoaderContext<Entities.StabilityPool_StabilityPoolLiquidationEvent.t, Entities.StabilityPool_StabilityPoolLiquidationEvent.indexedFieldOperations>,
   @as("StabilityPool_WithdrawFromStabilityPoolEvent") stabilityPool_WithdrawFromStabilityPoolEvent: entityLoaderContext<Entities.StabilityPool_WithdrawFromStabilityPoolEvent.t, Entities.StabilityPool_WithdrawFromStabilityPoolEvent.indexedFieldOperations>,
   @as("TroveManager_RedemptionEvent") troveManager_RedemptionEvent: entityLoaderContext<Entities.TroveManager_RedemptionEvent.t, Entities.TroveManager_RedemptionEvent.indexedFieldOperations>,
   @as("TroveManager_TroveFullLiquidationEvent") troveManager_TroveFullLiquidationEvent: entityLoaderContext<Entities.TroveManager_TroveFullLiquidationEvent.t, Entities.TroveManager_TroveFullLiquidationEvent.indexedFieldOperations>,
   @as("TroveManager_TrovePartialLiquidationEvent") troveManager_TrovePartialLiquidationEvent: entityLoaderContext<Entities.TroveManager_TrovePartialLiquidationEvent.t, Entities.TroveManager_TrovePartialLiquidationEvent.indexedFieldOperations>,
-  @as("USDF_Burn") uSDF_Burn: entityLoaderContext<Entities.USDF_Burn.t, Entities.USDF_Burn.indexedFieldOperations>,
-  @as("USDF_Mint") uSDF_Mint: entityLoaderContext<Entities.USDF_Mint.t, Entities.USDF_Mint.indexedFieldOperations>,
-  @as("USDF_TotalSupplyEvent") uSDF_TotalSupplyEvent: entityLoaderContext<Entities.USDF_TotalSupplyEvent.t, Entities.USDF_TotalSupplyEvent.indexedFieldOperations>,
+  @as("USDM_Burn") uSDM_Burn: entityLoaderContext<Entities.USDM_Burn.t, Entities.USDM_Burn.indexedFieldOperations>,
+  @as("USDM_Mint") uSDM_Mint: entityLoaderContext<Entities.USDM_Mint.t, Entities.USDM_Mint.indexedFieldOperations>,
+  @as("USDM_TotalSupplyEvent") uSDM_TotalSupplyEvent: entityLoaderContext<Entities.USDM_TotalSupplyEvent.t, Entities.USDM_TotalSupplyEvent.indexedFieldOperations>,
 }
 
 @genType
@@ -53,17 +50,15 @@ type handlerContext = {
   @as("BorrowOperations_AdjustTroveEvent") borrowOperations_AdjustTroveEvent: entityHandlerContext<Entities.BorrowOperations_AdjustTroveEvent.t>,
   @as("BorrowOperations_CloseTroveEvent") borrowOperations_CloseTroveEvent: entityHandlerContext<Entities.BorrowOperations_CloseTroveEvent.t>,
   @as("BorrowOperations_OpenTroveEvent") borrowOperations_OpenTroveEvent: entityHandlerContext<Entities.BorrowOperations_OpenTroveEvent.t>,
-  @as("FPTStaking_StakeEvent") fPTStaking_StakeEvent: entityHandlerContext<Entities.FPTStaking_StakeEvent.t>,
-  @as("FPTStaking_UnstakeEvent") fPTStaking_UnstakeEvent: entityHandlerContext<Entities.FPTStaking_UnstakeEvent.t>,
   @as("StabilityPool_ProvideToStabilityPoolEvent") stabilityPool_ProvideToStabilityPoolEvent: entityHandlerContext<Entities.StabilityPool_ProvideToStabilityPoolEvent.t>,
   @as("StabilityPool_StabilityPoolLiquidationEvent") stabilityPool_StabilityPoolLiquidationEvent: entityHandlerContext<Entities.StabilityPool_StabilityPoolLiquidationEvent.t>,
   @as("StabilityPool_WithdrawFromStabilityPoolEvent") stabilityPool_WithdrawFromStabilityPoolEvent: entityHandlerContext<Entities.StabilityPool_WithdrawFromStabilityPoolEvent.t>,
   @as("TroveManager_RedemptionEvent") troveManager_RedemptionEvent: entityHandlerContext<Entities.TroveManager_RedemptionEvent.t>,
   @as("TroveManager_TroveFullLiquidationEvent") troveManager_TroveFullLiquidationEvent: entityHandlerContext<Entities.TroveManager_TroveFullLiquidationEvent.t>,
   @as("TroveManager_TrovePartialLiquidationEvent") troveManager_TrovePartialLiquidationEvent: entityHandlerContext<Entities.TroveManager_TrovePartialLiquidationEvent.t>,
-  @as("USDF_Burn") uSDF_Burn: entityHandlerContext<Entities.USDF_Burn.t>,
-  @as("USDF_Mint") uSDF_Mint: entityHandlerContext<Entities.USDF_Mint.t>,
-  @as("USDF_TotalSupplyEvent") uSDF_TotalSupplyEvent: entityHandlerContext<Entities.USDF_TotalSupplyEvent.t>,
+  @as("USDM_Burn") uSDM_Burn: entityHandlerContext<Entities.USDM_Burn.t>,
+  @as("USDM_Mint") uSDM_Mint: entityHandlerContext<Entities.USDM_Mint.t>,
+  @as("USDM_TotalSupplyEvent") uSDM_TotalSupplyEvent: entityHandlerContext<Entities.USDM_TotalSupplyEvent.t>,
 }
 
 //Re-exporting types for backwards compatability
@@ -73,10 +68,6 @@ type borrowOperations_AdjustTroveEvent = Entities.BorrowOperations_AdjustTroveEv
 type borrowOperations_CloseTroveEvent = Entities.BorrowOperations_CloseTroveEvent.t
 @genType.as("BorrowOperations_OpenTroveEvent")
 type borrowOperations_OpenTroveEvent = Entities.BorrowOperations_OpenTroveEvent.t
-@genType.as("FPTStaking_StakeEvent")
-type fPTStaking_StakeEvent = Entities.FPTStaking_StakeEvent.t
-@genType.as("FPTStaking_UnstakeEvent")
-type fPTStaking_UnstakeEvent = Entities.FPTStaking_UnstakeEvent.t
 @genType.as("StabilityPool_ProvideToStabilityPoolEvent")
 type stabilityPool_ProvideToStabilityPoolEvent = Entities.StabilityPool_ProvideToStabilityPoolEvent.t
 @genType.as("StabilityPool_StabilityPoolLiquidationEvent")
@@ -89,12 +80,12 @@ type troveManager_RedemptionEvent = Entities.TroveManager_RedemptionEvent.t
 type troveManager_TroveFullLiquidationEvent = Entities.TroveManager_TroveFullLiquidationEvent.t
 @genType.as("TroveManager_TrovePartialLiquidationEvent")
 type troveManager_TrovePartialLiquidationEvent = Entities.TroveManager_TrovePartialLiquidationEvent.t
-@genType.as("USDF_Burn")
-type uSDF_Burn = Entities.USDF_Burn.t
-@genType.as("USDF_Mint")
-type uSDF_Mint = Entities.USDF_Mint.t
-@genType.as("USDF_TotalSupplyEvent")
-type uSDF_TotalSupplyEvent = Entities.USDF_TotalSupplyEvent.t
+@genType.as("USDM_Burn")
+type uSDM_Burn = Entities.USDM_Burn.t
+@genType.as("USDM_Mint")
+type uSDM_Mint = Entities.USDM_Mint.t
+@genType.as("USDM_TotalSupplyEvent")
+type uSDM_TotalSupplyEvent = Entities.USDM_TotalSupplyEvent.t
 
 type eventIdentifier = {
   chainId: int,
@@ -801,154 +792,6 @@ let register = (): Internal.fuelEventConfig => {
 }
 }
 
-module FPTStaking = {
-let abi = Fuel.transpileAbi(%raw(`require("../../abis/fptstaking-abi.json")`))
-/*Silence warning of label defined in multiple types*/
-@@warning("-30")
-type rec type0 = string
- and type1 = bool
- @tag("case") and type2 = | Address({payload: type6}) | ContractId({payload: type8})
- and type3 = {user: type2, amount: type11}
- and type4 = {user: type2, amount: type11}
- and type5 = {f_usdf: type11, total_fpt_staked: type11, protocol_manager_address: type8, borrower_operations_address: type8, fpt_asset_id: type7, usdf_asset_id: type7, is_initialized: type1}
- and type6 = {bits: type0}
- and type7 = {bits: type0}
- and type8 = {bits: type0}
- and type9 = unit
- and type10 = string
- and type11 = bigint
-@@warning("+30")
-let type0Schema = S.string
-let type1Schema = S.bool
-let type6Schema = S.object((s): type6 => {bits: s.field("bits", type0Schema)})
-let type7Schema = S.object((s): type7 => {bits: s.field("bits", type0Schema)})
-let type8Schema = S.object((s): type8 => {bits: s.field("bits", type0Schema)})
-let type9Schema = S.literal(%raw(`null`))->S.variant(_ => ())
-let type10Schema = S.string
-let type11Schema = BigInt.schema
-let type2Schema = S.union([S.object((s): type2 =>
-{
-  s.tag("case", "Address")
-  Address({payload: s.field("payload", type6Schema)})
-}), S.object((s): type2 =>
-{
-  s.tag("case", "ContractId")
-  ContractId({payload: s.field("payload", type8Schema)})
-})])
-let type3Schema = S.object((s): type3 => {user: s.field("user", type2Schema), amount: s.field("amount", type11Schema)})
-let type4Schema = S.object((s): type4 => {user: s.field("user", type2Schema), amount: s.field("amount", type11Schema)})
-let type5Schema = S.object((s): type5 => {f_usdf: s.field("f_usdf", type11Schema), total_fpt_staked: s.field("total_fpt_staked", type11Schema), protocol_manager_address: s.field("protocol_manager_address", type8Schema), borrower_operations_address: s.field("borrower_operations_address", type8Schema), fpt_asset_id: s.field("fpt_asset_id", type7Schema), usdf_asset_id: s.field("usdf_asset_id", type7Schema), is_initialized: s.field("is_initialized", type1Schema)})
-let contractName = "FPTStaking"
-
-module StakeEvent = {
-
-let sighash = "10889125148912567081"
-let topicCount = 0
-let name = "StakeEvent"
-let contractName = contractName
-
-@genType
-type eventArgs = type3
-@genType
-type block = Block.t
-@genType
-type transaction = Transaction.t
-
-@genType
-type event = Internal.genericEvent<eventArgs, block, transaction>
-@genType
-type loader<'loaderReturn> = Internal.genericLoader<Internal.genericLoaderArgs<event, loaderContext>, 'loaderReturn>
-@genType
-type handler<'loaderReturn> = Internal.genericHandler<Internal.genericHandlerArgs<event, handlerContext, 'loaderReturn>>
-@genType
-type contractRegister = Internal.genericContractRegister<Internal.genericContractRegisterArgs<event, contractRegistrations>>
-
-let paramsRawEventSchema = type3Schema->Utils.Schema.coerceToJsonPgType
-let blockSchema = Block.schema
-let transactionSchema = Transaction.schema
-
-let convertHyperSyncEventArgs = (Utils.magic: HyperSyncClient.Decoder.decodedEvent => eventArgs)
-
-let handlerRegister: HandlerTypes.Register.t = HandlerTypes.Register.make(
-  ~topic0=sighash->EvmTypes.Hex.fromStringUnsafe,
-  ~contractName,
-  ~eventName=name,
-)
-
-@genType
-type eventFilter = {}
-
-let getTopicSelection = _ => [LogSelection.makeTopicSelection(~topic0=[sighash->EvmTypes.Hex.fromStringUnsafe])->Utils.unwrapResultExn]
-
-let register = (): Internal.fuelEventConfig => {
-  name,
-  kind: LogData({
-  logId: sighash,
-  decode: Fuel.Receipt.getLogDataDecoder(~abi, ~logId=sighash),
-}),
-  isWildcard: (handlerRegister->HandlerTypes.Register.getEventOptions).isWildcard,
-  loader: handlerRegister->HandlerTypes.Register.getLoader,
-  handler: handlerRegister->HandlerTypes.Register.getHandler,
-  contractRegister: handlerRegister->HandlerTypes.Register.getContractRegister,
-  paramsRawEventSchema: paramsRawEventSchema->(Utils.magic: S.t<eventArgs> => S.t<Internal.eventParams>),
-}
-}
-
-module UnstakeEvent = {
-
-let sighash = "17439577238580224722"
-let topicCount = 0
-let name = "UnstakeEvent"
-let contractName = contractName
-
-@genType
-type eventArgs = type4
-@genType
-type block = Block.t
-@genType
-type transaction = Transaction.t
-
-@genType
-type event = Internal.genericEvent<eventArgs, block, transaction>
-@genType
-type loader<'loaderReturn> = Internal.genericLoader<Internal.genericLoaderArgs<event, loaderContext>, 'loaderReturn>
-@genType
-type handler<'loaderReturn> = Internal.genericHandler<Internal.genericHandlerArgs<event, handlerContext, 'loaderReturn>>
-@genType
-type contractRegister = Internal.genericContractRegister<Internal.genericContractRegisterArgs<event, contractRegistrations>>
-
-let paramsRawEventSchema = type4Schema->Utils.Schema.coerceToJsonPgType
-let blockSchema = Block.schema
-let transactionSchema = Transaction.schema
-
-let convertHyperSyncEventArgs = (Utils.magic: HyperSyncClient.Decoder.decodedEvent => eventArgs)
-
-let handlerRegister: HandlerTypes.Register.t = HandlerTypes.Register.make(
-  ~topic0=sighash->EvmTypes.Hex.fromStringUnsafe,
-  ~contractName,
-  ~eventName=name,
-)
-
-@genType
-type eventFilter = {}
-
-let getTopicSelection = _ => [LogSelection.makeTopicSelection(~topic0=[sighash->EvmTypes.Hex.fromStringUnsafe])->Utils.unwrapResultExn]
-
-let register = (): Internal.fuelEventConfig => {
-  name,
-  kind: LogData({
-  logId: sighash,
-  decode: Fuel.Receipt.getLogDataDecoder(~abi, ~logId=sighash),
-}),
-  isWildcard: (handlerRegister->HandlerTypes.Register.getEventOptions).isWildcard,
-  loader: handlerRegister->HandlerTypes.Register.getLoader,
-  handler: handlerRegister->HandlerTypes.Register.getHandler,
-  contractRegister: handlerRegister->HandlerTypes.Register.getContractRegister,
-  paramsRawEventSchema: paramsRawEventSchema->(Utils.magic: S.t<eventArgs> => S.t<Internal.eventParams>),
-}
-}
-}
-
 module StabilityPool = {
 let abi = Fuel.transpileAbi(%raw(`require("../../abis/stabilitypool-abi.json")`))
 /*Silence warning of label defined in multiple types*/
@@ -1158,11 +1001,11 @@ type rec type0 = (type19, type19, type19, type19)
  @tag("case") and type2 = | NonExistent({payload: type16}) | Active({payload: type16}) | ClosedByOwner({payload: type16}) | ClosedByLiquidation({payload: type16}) | ClosedByRedemption({payload: type16})
  @tag("case") and type3 = | Address({payload: type11}) | ContractId({payload: type13})
  and type5 = bigint
- and type6 = {borrower: type3, usdf_amount: type19, collateral_amount: type19, collateral_price: type19}
+ and type6 = {borrower: type3, usdm_amount: type19, collateral_amount: type19, collateral_price: type19}
  and type7 = {borrower: type3, debt: type19, collateral: type19}
  and type8 = {borrower: type3, remaining_debt: type19, remaining_collateral: type19}
- and type9 = {asset: type19, usdf_debt: type19}
- and type10 = {usdf_lot: type19, asset_lot: type19, cancelled_partial: type17}
+ and type9 = {asset: type19, usdm_debt: type19}
+ and type10 = {usdm_lot: type19, asset_lot: type19, cancelled_partial: type17}
  and type11 = {bits: type1}
  and type12 = {bits: type1}
  and type13 = {bits: type1}
@@ -1214,11 +1057,11 @@ let type3Schema = S.union([S.object((s): type3 =>
   s.tag("case", "ContractId")
   ContractId({payload: s.field("payload", type13Schema)})
 })])
-let type6Schema = S.object((s): type6 => {borrower: s.field("borrower", type3Schema), usdf_amount: s.field("usdf_amount", type19Schema), collateral_amount: s.field("collateral_amount", type19Schema), collateral_price: s.field("collateral_price", type19Schema)})
+let type6Schema = S.object((s): type6 => {borrower: s.field("borrower", type3Schema), usdm_amount: s.field("usdm_amount", type19Schema), collateral_amount: s.field("collateral_amount", type19Schema), collateral_price: s.field("collateral_price", type19Schema)})
 let type7Schema = S.object((s): type7 => {borrower: s.field("borrower", type3Schema), debt: s.field("debt", type19Schema), collateral: s.field("collateral", type19Schema)})
 let type8Schema = S.object((s): type8 => {borrower: s.field("borrower", type3Schema), remaining_debt: s.field("remaining_debt", type19Schema), remaining_collateral: s.field("remaining_collateral", type19Schema)})
-let type9Schema = S.object((s): type9 => {asset: s.field("asset", type19Schema), usdf_debt: s.field("usdf_debt", type19Schema)})
-let type10Schema = S.object((s): type10 => {usdf_lot: s.field("usdf_lot", type19Schema), asset_lot: s.field("asset_lot", type19Schema), cancelled_partial: s.field("cancelled_partial", type17Schema)})
+let type9Schema = S.object((s): type9 => {asset: s.field("asset", type19Schema), usdm_debt: s.field("usdm_debt", type19Schema)})
+let type10Schema = S.object((s): type10 => {usdm_lot: s.field("usdm_lot", type19Schema), asset_lot: s.field("asset_lot", type19Schema), cancelled_partial: s.field("cancelled_partial", type17Schema)})
 let type14Schema = (_tSchema: S.t<'t>) => S.object((s): type14<'t> => {ptr: s.field("ptr", type5Schema), cap: s.field("cap", type19Schema)})
 let contractName = "TroveManager"
 
@@ -1385,8 +1228,8 @@ let register = (): Internal.fuelEventConfig => {
 }
 }
 
-module USDF = {
-let abi = Fuel.transpileAbi(%raw(`require("../../abis/usdf-abi.json")`))
+module USDM = {
+let abi = Fuel.transpileAbi(%raw(`require("../../abis/usdm-abi.json")`))
 /*Silence warning of label defined in multiple types*/
 @@warning("-30")
 @tag("case") type rec type0 = | Address({payload: type8}) | ContractId({payload: type12})
@@ -1442,7 +1285,7 @@ let type4Schema = S.object((s): type4 => {asset: s.field("asset", type9Schema), 
 let type5Schema = S.object((s): type5 => {asset: s.field("asset", type9Schema), name: s.field("name", type1Schema(type13Schema)), sender: s.field("sender", type0Schema)})
 let type6Schema = S.object((s): type6 => {asset: s.field("asset", type9Schema), symbol: s.field("symbol", type1Schema(type13Schema)), sender: s.field("sender", type0Schema)})
 let type7Schema = S.object((s): type7 => {asset: s.field("asset", type9Schema), supply: s.field("supply", type17Schema), sender: s.field("sender", type0Schema)})
-let contractName = "USDF"
+let contractName = "USDM"
 
 module TotalSupplyEvent = {
 

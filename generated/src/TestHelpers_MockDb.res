@@ -63,17 +63,15 @@ and entities = {
     @as("BorrowOperations_AdjustTroveEvent") borrowOperations_AdjustTroveEvent: entityStoreOperations<Entities.BorrowOperations_AdjustTroveEvent.t>,
     @as("BorrowOperations_CloseTroveEvent") borrowOperations_CloseTroveEvent: entityStoreOperations<Entities.BorrowOperations_CloseTroveEvent.t>,
     @as("BorrowOperations_OpenTroveEvent") borrowOperations_OpenTroveEvent: entityStoreOperations<Entities.BorrowOperations_OpenTroveEvent.t>,
-    @as("FPTStaking_StakeEvent") fPTStaking_StakeEvent: entityStoreOperations<Entities.FPTStaking_StakeEvent.t>,
-    @as("FPTStaking_UnstakeEvent") fPTStaking_UnstakeEvent: entityStoreOperations<Entities.FPTStaking_UnstakeEvent.t>,
     @as("StabilityPool_ProvideToStabilityPoolEvent") stabilityPool_ProvideToStabilityPoolEvent: entityStoreOperations<Entities.StabilityPool_ProvideToStabilityPoolEvent.t>,
     @as("StabilityPool_StabilityPoolLiquidationEvent") stabilityPool_StabilityPoolLiquidationEvent: entityStoreOperations<Entities.StabilityPool_StabilityPoolLiquidationEvent.t>,
     @as("StabilityPool_WithdrawFromStabilityPoolEvent") stabilityPool_WithdrawFromStabilityPoolEvent: entityStoreOperations<Entities.StabilityPool_WithdrawFromStabilityPoolEvent.t>,
     @as("TroveManager_RedemptionEvent") troveManager_RedemptionEvent: entityStoreOperations<Entities.TroveManager_RedemptionEvent.t>,
     @as("TroveManager_TroveFullLiquidationEvent") troveManager_TroveFullLiquidationEvent: entityStoreOperations<Entities.TroveManager_TroveFullLiquidationEvent.t>,
     @as("TroveManager_TrovePartialLiquidationEvent") troveManager_TrovePartialLiquidationEvent: entityStoreOperations<Entities.TroveManager_TrovePartialLiquidationEvent.t>,
-    @as("USDF_Burn") uSDF_Burn: entityStoreOperations<Entities.USDF_Burn.t>,
-    @as("USDF_Mint") uSDF_Mint: entityStoreOperations<Entities.USDF_Mint.t>,
-    @as("USDF_TotalSupplyEvent") uSDF_TotalSupplyEvent: entityStoreOperations<Entities.USDF_TotalSupplyEvent.t>,
+    @as("USDM_Burn") uSDM_Burn: entityStoreOperations<Entities.USDM_Burn.t>,
+    @as("USDM_Mint") uSDM_Mint: entityStoreOperations<Entities.USDM_Mint.t>,
+    @as("USDM_TotalSupplyEvent") uSDM_TotalSupplyEvent: entityStoreOperations<Entities.USDM_TotalSupplyEvent.t>,
   }
 // User defined entities always have a string for an id which is used as the
 // key for entity stores
@@ -266,22 +264,6 @@ let rec makeWithInMemoryStore: InMemoryStore.t => t = (inMemoryStore: InMemorySt
           ~getKey=({id}) => id,
         )
       },
-      fPTStaking_StakeEvent: {
-        makeStoreOperatorEntity(
-          ~inMemoryStore,
-          ~makeMockDb=makeWithInMemoryStore,
-          ~getStore=db => db.entities->InMemoryStore.EntityTables.get(module(Entities.FPTStaking_StakeEvent)),
-          ~getKey=({id}) => id,
-        )
-      },
-      fPTStaking_UnstakeEvent: {
-        makeStoreOperatorEntity(
-          ~inMemoryStore,
-          ~makeMockDb=makeWithInMemoryStore,
-          ~getStore=db => db.entities->InMemoryStore.EntityTables.get(module(Entities.FPTStaking_UnstakeEvent)),
-          ~getKey=({id}) => id,
-        )
-      },
       stabilityPool_ProvideToStabilityPoolEvent: {
         makeStoreOperatorEntity(
           ~inMemoryStore,
@@ -330,27 +312,27 @@ let rec makeWithInMemoryStore: InMemoryStore.t => t = (inMemoryStore: InMemorySt
           ~getKey=({id}) => id,
         )
       },
-      uSDF_Burn: {
+      uSDM_Burn: {
         makeStoreOperatorEntity(
           ~inMemoryStore,
           ~makeMockDb=makeWithInMemoryStore,
-          ~getStore=db => db.entities->InMemoryStore.EntityTables.get(module(Entities.USDF_Burn)),
+          ~getStore=db => db.entities->InMemoryStore.EntityTables.get(module(Entities.USDM_Burn)),
           ~getKey=({id}) => id,
         )
       },
-      uSDF_Mint: {
+      uSDM_Mint: {
         makeStoreOperatorEntity(
           ~inMemoryStore,
           ~makeMockDb=makeWithInMemoryStore,
-          ~getStore=db => db.entities->InMemoryStore.EntityTables.get(module(Entities.USDF_Mint)),
+          ~getStore=db => db.entities->InMemoryStore.EntityTables.get(module(Entities.USDM_Mint)),
           ~getKey=({id}) => id,
         )
       },
-      uSDF_TotalSupplyEvent: {
+      uSDM_TotalSupplyEvent: {
         makeStoreOperatorEntity(
           ~inMemoryStore,
           ~makeMockDb=makeWithInMemoryStore,
-          ~getStore=db => db.entities->InMemoryStore.EntityTables.get(module(Entities.USDF_TotalSupplyEvent)),
+          ~getStore=db => db.entities->InMemoryStore.EntityTables.get(module(Entities.USDM_TotalSupplyEvent)),
           ~getKey=({id}) => id,
         )
       },
@@ -507,16 +489,6 @@ let writeFromMemoryStore = (mockDb: t, ~inMemoryStore: InMemoryStore.t) => {
   )
   mockDb->executeRowsEntity(
     ~inMemoryStore,
-    ~entityMod=module(Entities.FPTStaking_StakeEvent),
-    ~getKey=entity => entity.id,
-  )
-  mockDb->executeRowsEntity(
-    ~inMemoryStore,
-    ~entityMod=module(Entities.FPTStaking_UnstakeEvent),
-    ~getKey=entity => entity.id,
-  )
-  mockDb->executeRowsEntity(
-    ~inMemoryStore,
     ~entityMod=module(Entities.StabilityPool_ProvideToStabilityPoolEvent),
     ~getKey=entity => entity.id,
   )
@@ -547,17 +519,17 @@ let writeFromMemoryStore = (mockDb: t, ~inMemoryStore: InMemoryStore.t) => {
   )
   mockDb->executeRowsEntity(
     ~inMemoryStore,
-    ~entityMod=module(Entities.USDF_Burn),
+    ~entityMod=module(Entities.USDM_Burn),
     ~getKey=entity => entity.id,
   )
   mockDb->executeRowsEntity(
     ~inMemoryStore,
-    ~entityMod=module(Entities.USDF_Mint),
+    ~entityMod=module(Entities.USDM_Mint),
     ~getKey=entity => entity.id,
   )
   mockDb->executeRowsEntity(
     ~inMemoryStore,
-    ~entityMod=module(Entities.USDF_TotalSupplyEvent),
+    ~entityMod=module(Entities.USDM_TotalSupplyEvent),
     ~getKey=entity => entity.id,
   )
 }

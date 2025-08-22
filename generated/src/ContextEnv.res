@@ -156,10 +156,9 @@ let makeEntityHandlerContext = (
 let getContractRegisterContext = (contextEnv, ~inMemoryStore, ~shouldSaveHistory) => {
   //TODO only add contracts we've registered for the event in the config
   addBorrowOperations:  makeDynamicContractRegisterFn(~contextEnv, ~inMemoryStore, ~contractName=BorrowOperations, ~shouldSaveHistory),
-  addFPTStaking:  makeDynamicContractRegisterFn(~contextEnv, ~inMemoryStore, ~contractName=FPTStaking, ~shouldSaveHistory),
   addStabilityPool:  makeDynamicContractRegisterFn(~contextEnv, ~inMemoryStore, ~contractName=StabilityPool, ~shouldSaveHistory),
   addTroveManager:  makeDynamicContractRegisterFn(~contextEnv, ~inMemoryStore, ~contractName=TroveManager, ~shouldSaveHistory),
-  addUSDF:  makeDynamicContractRegisterFn(~contextEnv, ~inMemoryStore, ~contractName=USDF, ~shouldSaveHistory),
+  addUSDM:  makeDynamicContractRegisterFn(~contextEnv, ~inMemoryStore, ~contractName=USDM, ~shouldSaveHistory),
 }->(Utils.magic: Types.contractRegistrations => Internal.contractRegisterContext)
 
 let getLoaderContext = (contextEnv: t, ~inMemoryStore: InMemoryStore.t, ~loadLayer: LoadLayer.t) => {
@@ -236,42 +235,6 @@ let getLoaderContext = (contextEnv: t, ~inMemoryStore: InMemoryStore.t, ~loadLay
       
         identity: loadLayer->makeWhereLoader(
           ~entityMod=module(Entities.BorrowOperations_OpenTroveEvent),
-          ~inMemoryStore,
-          ~fieldName="identity",
-          ~fieldValueSchema=S.string,
-          ~logger,
-        ),
-      
-      },
-    },
-    fPTStaking_StakeEvent: {
-      get: loadLayer->LoadLayer.makeLoader(
-        ~entityMod=module(Entities.FPTStaking_StakeEvent),
-        ~inMemoryStore,
-        ~logger,
-      ),
-      getWhere: {
-        
-        identity: loadLayer->makeWhereLoader(
-          ~entityMod=module(Entities.FPTStaking_StakeEvent),
-          ~inMemoryStore,
-          ~fieldName="identity",
-          ~fieldValueSchema=S.string,
-          ~logger,
-        ),
-      
-      },
-    },
-    fPTStaking_UnstakeEvent: {
-      get: loadLayer->LoadLayer.makeLoader(
-        ~entityMod=module(Entities.FPTStaking_UnstakeEvent),
-        ~inMemoryStore,
-        ~logger,
-      ),
-      getWhere: {
-        
-        identity: loadLayer->makeWhereLoader(
-          ~entityMod=module(Entities.FPTStaking_UnstakeEvent),
           ~inMemoryStore,
           ~fieldName="identity",
           ~fieldValueSchema=S.string,
@@ -412,9 +375,9 @@ let getLoaderContext = (contextEnv: t, ~inMemoryStore: InMemoryStore.t, ~loadLay
       
       },
     },
-    uSDF_Burn: {
+    uSDM_Burn: {
       get: loadLayer->LoadLayer.makeLoader(
-        ~entityMod=module(Entities.USDF_Burn),
+        ~entityMod=module(Entities.USDM_Burn),
         ~inMemoryStore,
         ~logger,
       ),
@@ -422,9 +385,9 @@ let getLoaderContext = (contextEnv: t, ~inMemoryStore: InMemoryStore.t, ~loadLay
         
       },
     },
-    uSDF_Mint: {
+    uSDM_Mint: {
       get: loadLayer->LoadLayer.makeLoader(
-        ~entityMod=module(Entities.USDF_Mint),
+        ~entityMod=module(Entities.USDM_Mint),
         ~inMemoryStore,
         ~logger,
       ),
@@ -432,9 +395,9 @@ let getLoaderContext = (contextEnv: t, ~inMemoryStore: InMemoryStore.t, ~loadLay
         
       },
     },
-    uSDF_TotalSupplyEvent: {
+    uSDM_TotalSupplyEvent: {
       get: loadLayer->LoadLayer.makeLoader(
-        ~entityMod=module(Entities.USDF_TotalSupplyEvent),
+        ~entityMod=module(Entities.USDM_TotalSupplyEvent),
         ~inMemoryStore,
         ~logger,
       ),
@@ -478,24 +441,6 @@ let getHandlerContext = (
       ~eventIdentifier,
       ~inMemoryStore,
       ~entityMod=module(Entities.BorrowOperations_OpenTroveEvent),
-      ~getKey=entity => entity.id,
-      ~logger,
-      ~loadLayer,
-      ~shouldSaveHistory,
-    ),
-    fPTStaking_StakeEvent: makeEntityHandlerContext(
-      ~eventIdentifier,
-      ~inMemoryStore,
-      ~entityMod=module(Entities.FPTStaking_StakeEvent),
-      ~getKey=entity => entity.id,
-      ~logger,
-      ~loadLayer,
-      ~shouldSaveHistory,
-    ),
-    fPTStaking_UnstakeEvent: makeEntityHandlerContext(
-      ~eventIdentifier,
-      ~inMemoryStore,
-      ~entityMod=module(Entities.FPTStaking_UnstakeEvent),
       ~getKey=entity => entity.id,
       ~logger,
       ~loadLayer,
@@ -555,28 +500,28 @@ let getHandlerContext = (
       ~loadLayer,
       ~shouldSaveHistory,
     ),
-    uSDF_Burn: makeEntityHandlerContext(
+    uSDM_Burn: makeEntityHandlerContext(
       ~eventIdentifier,
       ~inMemoryStore,
-      ~entityMod=module(Entities.USDF_Burn),
+      ~entityMod=module(Entities.USDM_Burn),
       ~getKey=entity => entity.id,
       ~logger,
       ~loadLayer,
       ~shouldSaveHistory,
     ),
-    uSDF_Mint: makeEntityHandlerContext(
+    uSDM_Mint: makeEntityHandlerContext(
       ~eventIdentifier,
       ~inMemoryStore,
-      ~entityMod=module(Entities.USDF_Mint),
+      ~entityMod=module(Entities.USDM_Mint),
       ~getKey=entity => entity.id,
       ~logger,
       ~loadLayer,
       ~shouldSaveHistory,
     ),
-    uSDF_TotalSupplyEvent: makeEntityHandlerContext(
+    uSDM_TotalSupplyEvent: makeEntityHandlerContext(
       ~eventIdentifier,
       ~inMemoryStore,
-      ~entityMod=module(Entities.USDF_TotalSupplyEvent),
+      ~entityMod=module(Entities.USDM_TotalSupplyEvent),
       ~getKey=entity => entity.id,
       ~logger,
       ~loadLayer,

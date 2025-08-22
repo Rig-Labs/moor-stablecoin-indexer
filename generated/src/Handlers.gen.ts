@@ -29,22 +29,6 @@ import type {BorrowOperations_OpenTroveEvent_handler as Types_BorrowOperations_O
 
 import type {BorrowOperations_OpenTroveEvent_loader as Types_BorrowOperations_OpenTroveEvent_loader} from './Types.gen';
 
-import type {FPTStaking_StakeEvent_contractRegister as Types_FPTStaking_StakeEvent_contractRegister} from './Types.gen';
-
-import type {FPTStaking_StakeEvent_eventFilter as Types_FPTStaking_StakeEvent_eventFilter} from './Types.gen';
-
-import type {FPTStaking_StakeEvent_handler as Types_FPTStaking_StakeEvent_handler} from './Types.gen';
-
-import type {FPTStaking_StakeEvent_loader as Types_FPTStaking_StakeEvent_loader} from './Types.gen';
-
-import type {FPTStaking_UnstakeEvent_contractRegister as Types_FPTStaking_UnstakeEvent_contractRegister} from './Types.gen';
-
-import type {FPTStaking_UnstakeEvent_eventFilter as Types_FPTStaking_UnstakeEvent_eventFilter} from './Types.gen';
-
-import type {FPTStaking_UnstakeEvent_handler as Types_FPTStaking_UnstakeEvent_handler} from './Types.gen';
-
-import type {FPTStaking_UnstakeEvent_loader as Types_FPTStaking_UnstakeEvent_loader} from './Types.gen';
-
 import type {HandlerTypes_eventConfig as Types_HandlerTypes_eventConfig} from './Types.gen';
 
 import type {SingleOrMultiple_t as Types_SingleOrMultiple_t} from './Types.gen';
@@ -97,29 +81,29 @@ import type {TroveManager_TrovePartialLiquidationEvent_handler as Types_TroveMan
 
 import type {TroveManager_TrovePartialLiquidationEvent_loader as Types_TroveManager_TrovePartialLiquidationEvent_loader} from './Types.gen';
 
-import type {USDF_Burn_contractRegister as Types_USDF_Burn_contractRegister} from './Types.gen';
+import type {USDM_Burn_contractRegister as Types_USDM_Burn_contractRegister} from './Types.gen';
 
-import type {USDF_Burn_eventFilter as Types_USDF_Burn_eventFilter} from './Types.gen';
+import type {USDM_Burn_eventFilter as Types_USDM_Burn_eventFilter} from './Types.gen';
 
-import type {USDF_Burn_handler as Types_USDF_Burn_handler} from './Types.gen';
+import type {USDM_Burn_handler as Types_USDM_Burn_handler} from './Types.gen';
 
-import type {USDF_Burn_loader as Types_USDF_Burn_loader} from './Types.gen';
+import type {USDM_Burn_loader as Types_USDM_Burn_loader} from './Types.gen';
 
-import type {USDF_Mint_contractRegister as Types_USDF_Mint_contractRegister} from './Types.gen';
+import type {USDM_Mint_contractRegister as Types_USDM_Mint_contractRegister} from './Types.gen';
 
-import type {USDF_Mint_eventFilter as Types_USDF_Mint_eventFilter} from './Types.gen';
+import type {USDM_Mint_eventFilter as Types_USDM_Mint_eventFilter} from './Types.gen';
 
-import type {USDF_Mint_handler as Types_USDF_Mint_handler} from './Types.gen';
+import type {USDM_Mint_handler as Types_USDM_Mint_handler} from './Types.gen';
 
-import type {USDF_Mint_loader as Types_USDF_Mint_loader} from './Types.gen';
+import type {USDM_Mint_loader as Types_USDM_Mint_loader} from './Types.gen';
 
-import type {USDF_TotalSupplyEvent_contractRegister as Types_USDF_TotalSupplyEvent_contractRegister} from './Types.gen';
+import type {USDM_TotalSupplyEvent_contractRegister as Types_USDM_TotalSupplyEvent_contractRegister} from './Types.gen';
 
-import type {USDF_TotalSupplyEvent_eventFilter as Types_USDF_TotalSupplyEvent_eventFilter} from './Types.gen';
+import type {USDM_TotalSupplyEvent_eventFilter as Types_USDM_TotalSupplyEvent_eventFilter} from './Types.gen';
 
-import type {USDF_TotalSupplyEvent_handler as Types_USDF_TotalSupplyEvent_handler} from './Types.gen';
+import type {USDM_TotalSupplyEvent_handler as Types_USDM_TotalSupplyEvent_handler} from './Types.gen';
 
-import type {USDF_TotalSupplyEvent_loader as Types_USDF_TotalSupplyEvent_loader} from './Types.gen';
+import type {USDM_TotalSupplyEvent_loader as Types_USDM_TotalSupplyEvent_loader} from './Types.gen';
 
 import type {fnWithEventConfig as Types_fnWithEventConfig} from './Types.gen';
 
@@ -142,18 +126,6 @@ export const BorrowOperations_AdjustTroveEvent_handler: Types_fnWithEventConfig<
 export const BorrowOperations_AdjustTroveEvent_contractRegister: Types_fnWithEventConfig<Types_BorrowOperations_AdjustTroveEvent_contractRegister,Types_HandlerTypes_eventConfig<Types_BorrowOperations_AdjustTroveEvent_eventFilter>> = HandlersJS.BorrowOperations.AdjustTroveEvent.contractRegister as any;
 
 export const BorrowOperations_AdjustTroveEvent_handlerWithLoader: <loaderReturn>(_1:Internal_genericHandlerWithLoader<Types_BorrowOperations_AdjustTroveEvent_loader<loaderReturn>,Types_BorrowOperations_AdjustTroveEvent_handler<loaderReturn>,Types_SingleOrMultiple_t<Types_BorrowOperations_AdjustTroveEvent_eventFilter>>) => void = HandlersJS.BorrowOperations.AdjustTroveEvent.handlerWithLoader as any;
-
-export const FPTStaking_StakeEvent_handler: Types_fnWithEventConfig<Types_FPTStaking_StakeEvent_handler<void>,Types_HandlerTypes_eventConfig<Types_FPTStaking_StakeEvent_eventFilter>> = HandlersJS.FPTStaking.StakeEvent.handler as any;
-
-export const FPTStaking_StakeEvent_contractRegister: Types_fnWithEventConfig<Types_FPTStaking_StakeEvent_contractRegister,Types_HandlerTypes_eventConfig<Types_FPTStaking_StakeEvent_eventFilter>> = HandlersJS.FPTStaking.StakeEvent.contractRegister as any;
-
-export const FPTStaking_StakeEvent_handlerWithLoader: <loaderReturn>(_1:Internal_genericHandlerWithLoader<Types_FPTStaking_StakeEvent_loader<loaderReturn>,Types_FPTStaking_StakeEvent_handler<loaderReturn>,Types_SingleOrMultiple_t<Types_FPTStaking_StakeEvent_eventFilter>>) => void = HandlersJS.FPTStaking.StakeEvent.handlerWithLoader as any;
-
-export const FPTStaking_UnstakeEvent_handler: Types_fnWithEventConfig<Types_FPTStaking_UnstakeEvent_handler<void>,Types_HandlerTypes_eventConfig<Types_FPTStaking_UnstakeEvent_eventFilter>> = HandlersJS.FPTStaking.UnstakeEvent.handler as any;
-
-export const FPTStaking_UnstakeEvent_contractRegister: Types_fnWithEventConfig<Types_FPTStaking_UnstakeEvent_contractRegister,Types_HandlerTypes_eventConfig<Types_FPTStaking_UnstakeEvent_eventFilter>> = HandlersJS.FPTStaking.UnstakeEvent.contractRegister as any;
-
-export const FPTStaking_UnstakeEvent_handlerWithLoader: <loaderReturn>(_1:Internal_genericHandlerWithLoader<Types_FPTStaking_UnstakeEvent_loader<loaderReturn>,Types_FPTStaking_UnstakeEvent_handler<loaderReturn>,Types_SingleOrMultiple_t<Types_FPTStaking_UnstakeEvent_eventFilter>>) => void = HandlersJS.FPTStaking.UnstakeEvent.handlerWithLoader as any;
 
 export const StabilityPool_StabilityPoolLiquidationEvent_handler: Types_fnWithEventConfig<Types_StabilityPool_StabilityPoolLiquidationEvent_handler<void>,Types_HandlerTypes_eventConfig<Types_StabilityPool_StabilityPoolLiquidationEvent_eventFilter>> = HandlersJS.StabilityPool.StabilityPoolLiquidationEvent.handler as any;
 
@@ -191,41 +163,23 @@ export const TroveManager_RedemptionEvent_contractRegister: Types_fnWithEventCon
 
 export const TroveManager_RedemptionEvent_handlerWithLoader: <loaderReturn>(_1:Internal_genericHandlerWithLoader<Types_TroveManager_RedemptionEvent_loader<loaderReturn>,Types_TroveManager_RedemptionEvent_handler<loaderReturn>,Types_SingleOrMultiple_t<Types_TroveManager_RedemptionEvent_eventFilter>>) => void = HandlersJS.TroveManager.RedemptionEvent.handlerWithLoader as any;
 
-export const USDF_TotalSupplyEvent_handler: Types_fnWithEventConfig<Types_USDF_TotalSupplyEvent_handler<void>,Types_HandlerTypes_eventConfig<Types_USDF_TotalSupplyEvent_eventFilter>> = HandlersJS.USDF.TotalSupplyEvent.handler as any;
+export const USDM_TotalSupplyEvent_handler: Types_fnWithEventConfig<Types_USDM_TotalSupplyEvent_handler<void>,Types_HandlerTypes_eventConfig<Types_USDM_TotalSupplyEvent_eventFilter>> = HandlersJS.USDM.TotalSupplyEvent.handler as any;
 
-export const USDF_TotalSupplyEvent_contractRegister: Types_fnWithEventConfig<Types_USDF_TotalSupplyEvent_contractRegister,Types_HandlerTypes_eventConfig<Types_USDF_TotalSupplyEvent_eventFilter>> = HandlersJS.USDF.TotalSupplyEvent.contractRegister as any;
+export const USDM_TotalSupplyEvent_contractRegister: Types_fnWithEventConfig<Types_USDM_TotalSupplyEvent_contractRegister,Types_HandlerTypes_eventConfig<Types_USDM_TotalSupplyEvent_eventFilter>> = HandlersJS.USDM.TotalSupplyEvent.contractRegister as any;
 
-export const USDF_TotalSupplyEvent_handlerWithLoader: <loaderReturn>(_1:Internal_genericHandlerWithLoader<Types_USDF_TotalSupplyEvent_loader<loaderReturn>,Types_USDF_TotalSupplyEvent_handler<loaderReturn>,Types_SingleOrMultiple_t<Types_USDF_TotalSupplyEvent_eventFilter>>) => void = HandlersJS.USDF.TotalSupplyEvent.handlerWithLoader as any;
+export const USDM_TotalSupplyEvent_handlerWithLoader: <loaderReturn>(_1:Internal_genericHandlerWithLoader<Types_USDM_TotalSupplyEvent_loader<loaderReturn>,Types_USDM_TotalSupplyEvent_handler<loaderReturn>,Types_SingleOrMultiple_t<Types_USDM_TotalSupplyEvent_eventFilter>>) => void = HandlersJS.USDM.TotalSupplyEvent.handlerWithLoader as any;
 
-export const USDF_Mint_handler: Types_fnWithEventConfig<Types_USDF_Mint_handler<void>,Types_HandlerTypes_eventConfig<Types_USDF_Mint_eventFilter>> = HandlersJS.USDF.Mint.handler as any;
+export const USDM_Mint_handler: Types_fnWithEventConfig<Types_USDM_Mint_handler<void>,Types_HandlerTypes_eventConfig<Types_USDM_Mint_eventFilter>> = HandlersJS.USDM.Mint.handler as any;
 
-export const USDF_Mint_contractRegister: Types_fnWithEventConfig<Types_USDF_Mint_contractRegister,Types_HandlerTypes_eventConfig<Types_USDF_Mint_eventFilter>> = HandlersJS.USDF.Mint.contractRegister as any;
+export const USDM_Mint_contractRegister: Types_fnWithEventConfig<Types_USDM_Mint_contractRegister,Types_HandlerTypes_eventConfig<Types_USDM_Mint_eventFilter>> = HandlersJS.USDM.Mint.contractRegister as any;
 
-export const USDF_Mint_handlerWithLoader: <loaderReturn>(_1:Internal_genericHandlerWithLoader<Types_USDF_Mint_loader<loaderReturn>,Types_USDF_Mint_handler<loaderReturn>,Types_SingleOrMultiple_t<Types_USDF_Mint_eventFilter>>) => void = HandlersJS.USDF.Mint.handlerWithLoader as any;
+export const USDM_Mint_handlerWithLoader: <loaderReturn>(_1:Internal_genericHandlerWithLoader<Types_USDM_Mint_loader<loaderReturn>,Types_USDM_Mint_handler<loaderReturn>,Types_SingleOrMultiple_t<Types_USDM_Mint_eventFilter>>) => void = HandlersJS.USDM.Mint.handlerWithLoader as any;
 
-export const USDF_Burn_handler: Types_fnWithEventConfig<Types_USDF_Burn_handler<void>,Types_HandlerTypes_eventConfig<Types_USDF_Burn_eventFilter>> = HandlersJS.USDF.Burn.handler as any;
+export const USDM_Burn_handler: Types_fnWithEventConfig<Types_USDM_Burn_handler<void>,Types_HandlerTypes_eventConfig<Types_USDM_Burn_eventFilter>> = HandlersJS.USDM.Burn.handler as any;
 
-export const USDF_Burn_contractRegister: Types_fnWithEventConfig<Types_USDF_Burn_contractRegister,Types_HandlerTypes_eventConfig<Types_USDF_Burn_eventFilter>> = HandlersJS.USDF.Burn.contractRegister as any;
+export const USDM_Burn_contractRegister: Types_fnWithEventConfig<Types_USDM_Burn_contractRegister,Types_HandlerTypes_eventConfig<Types_USDM_Burn_eventFilter>> = HandlersJS.USDM.Burn.contractRegister as any;
 
-export const USDF_Burn_handlerWithLoader: <loaderReturn>(_1:Internal_genericHandlerWithLoader<Types_USDF_Burn_loader<loaderReturn>,Types_USDF_Burn_handler<loaderReturn>,Types_SingleOrMultiple_t<Types_USDF_Burn_eventFilter>>) => void = HandlersJS.USDF.Burn.handlerWithLoader as any;
-
-export const USDF: {
-  TotalSupplyEvent: {
-    handlerWithLoader: <loaderReturn>(_1:Internal_genericHandlerWithLoader<Types_USDF_TotalSupplyEvent_loader<loaderReturn>,Types_USDF_TotalSupplyEvent_handler<loaderReturn>,Types_SingleOrMultiple_t<Types_USDF_TotalSupplyEvent_eventFilter>>) => void; 
-    handler: Types_fnWithEventConfig<Types_USDF_TotalSupplyEvent_handler<void>,Types_HandlerTypes_eventConfig<Types_USDF_TotalSupplyEvent_eventFilter>>; 
-    contractRegister: Types_fnWithEventConfig<Types_USDF_TotalSupplyEvent_contractRegister,Types_HandlerTypes_eventConfig<Types_USDF_TotalSupplyEvent_eventFilter>>
-  }; 
-  Mint: {
-    handlerWithLoader: <loaderReturn>(_1:Internal_genericHandlerWithLoader<Types_USDF_Mint_loader<loaderReturn>,Types_USDF_Mint_handler<loaderReturn>,Types_SingleOrMultiple_t<Types_USDF_Mint_eventFilter>>) => void; 
-    handler: Types_fnWithEventConfig<Types_USDF_Mint_handler<void>,Types_HandlerTypes_eventConfig<Types_USDF_Mint_eventFilter>>; 
-    contractRegister: Types_fnWithEventConfig<Types_USDF_Mint_contractRegister,Types_HandlerTypes_eventConfig<Types_USDF_Mint_eventFilter>>
-  }; 
-  Burn: {
-    handlerWithLoader: <loaderReturn>(_1:Internal_genericHandlerWithLoader<Types_USDF_Burn_loader<loaderReturn>,Types_USDF_Burn_handler<loaderReturn>,Types_SingleOrMultiple_t<Types_USDF_Burn_eventFilter>>) => void; 
-    handler: Types_fnWithEventConfig<Types_USDF_Burn_handler<void>,Types_HandlerTypes_eventConfig<Types_USDF_Burn_eventFilter>>; 
-    contractRegister: Types_fnWithEventConfig<Types_USDF_Burn_contractRegister,Types_HandlerTypes_eventConfig<Types_USDF_Burn_eventFilter>>
-  }
-} = HandlersJS.USDF as any;
+export const USDM_Burn_handlerWithLoader: <loaderReturn>(_1:Internal_genericHandlerWithLoader<Types_USDM_Burn_loader<loaderReturn>,Types_USDM_Burn_handler<loaderReturn>,Types_SingleOrMultiple_t<Types_USDM_Burn_eventFilter>>) => void = HandlersJS.USDM.Burn.handlerWithLoader as any;
 
 export const TroveManager: {
   TroveFullLiquidationEvent: {
@@ -244,6 +198,24 @@ export const TroveManager: {
     contractRegister: Types_fnWithEventConfig<Types_TroveManager_TrovePartialLiquidationEvent_contractRegister,Types_HandlerTypes_eventConfig<Types_TroveManager_TrovePartialLiquidationEvent_eventFilter>>
   }
 } = HandlersJS.TroveManager as any;
+
+export const USDM: {
+  TotalSupplyEvent: {
+    handlerWithLoader: <loaderReturn>(_1:Internal_genericHandlerWithLoader<Types_USDM_TotalSupplyEvent_loader<loaderReturn>,Types_USDM_TotalSupplyEvent_handler<loaderReturn>,Types_SingleOrMultiple_t<Types_USDM_TotalSupplyEvent_eventFilter>>) => void; 
+    handler: Types_fnWithEventConfig<Types_USDM_TotalSupplyEvent_handler<void>,Types_HandlerTypes_eventConfig<Types_USDM_TotalSupplyEvent_eventFilter>>; 
+    contractRegister: Types_fnWithEventConfig<Types_USDM_TotalSupplyEvent_contractRegister,Types_HandlerTypes_eventConfig<Types_USDM_TotalSupplyEvent_eventFilter>>
+  }; 
+  Mint: {
+    handlerWithLoader: <loaderReturn>(_1:Internal_genericHandlerWithLoader<Types_USDM_Mint_loader<loaderReturn>,Types_USDM_Mint_handler<loaderReturn>,Types_SingleOrMultiple_t<Types_USDM_Mint_eventFilter>>) => void; 
+    handler: Types_fnWithEventConfig<Types_USDM_Mint_handler<void>,Types_HandlerTypes_eventConfig<Types_USDM_Mint_eventFilter>>; 
+    contractRegister: Types_fnWithEventConfig<Types_USDM_Mint_contractRegister,Types_HandlerTypes_eventConfig<Types_USDM_Mint_eventFilter>>
+  }; 
+  Burn: {
+    handlerWithLoader: <loaderReturn>(_1:Internal_genericHandlerWithLoader<Types_USDM_Burn_loader<loaderReturn>,Types_USDM_Burn_handler<loaderReturn>,Types_SingleOrMultiple_t<Types_USDM_Burn_eventFilter>>) => void; 
+    handler: Types_fnWithEventConfig<Types_USDM_Burn_handler<void>,Types_HandlerTypes_eventConfig<Types_USDM_Burn_eventFilter>>; 
+    contractRegister: Types_fnWithEventConfig<Types_USDM_Burn_contractRegister,Types_HandlerTypes_eventConfig<Types_USDM_Burn_eventFilter>>
+  }
+} = HandlersJS.USDM as any;
 
 export const BorrowOperations: {
   OpenTroveEvent: {
@@ -280,13 +252,3 @@ export const StabilityPool: {
     contractRegister: Types_fnWithEventConfig<Types_StabilityPool_StabilityPoolLiquidationEvent_contractRegister,Types_HandlerTypes_eventConfig<Types_StabilityPool_StabilityPoolLiquidationEvent_eventFilter>>
   }
 } = HandlersJS.StabilityPool as any;
-
-export const FPTStaking: { UnstakeEvent: {
-  handlerWithLoader: <loaderReturn>(_1:Internal_genericHandlerWithLoader<Types_FPTStaking_UnstakeEvent_loader<loaderReturn>,Types_FPTStaking_UnstakeEvent_handler<loaderReturn>,Types_SingleOrMultiple_t<Types_FPTStaking_UnstakeEvent_eventFilter>>) => void; 
-  handler: Types_fnWithEventConfig<Types_FPTStaking_UnstakeEvent_handler<void>,Types_HandlerTypes_eventConfig<Types_FPTStaking_UnstakeEvent_eventFilter>>; 
-  contractRegister: Types_fnWithEventConfig<Types_FPTStaking_UnstakeEvent_contractRegister,Types_HandlerTypes_eventConfig<Types_FPTStaking_UnstakeEvent_eventFilter>>
-}; StakeEvent: {
-  handlerWithLoader: <loaderReturn>(_1:Internal_genericHandlerWithLoader<Types_FPTStaking_StakeEvent_loader<loaderReturn>,Types_FPTStaking_StakeEvent_handler<loaderReturn>,Types_SingleOrMultiple_t<Types_FPTStaking_StakeEvent_eventFilter>>) => void; 
-  handler: Types_fnWithEventConfig<Types_FPTStaking_StakeEvent_handler<void>,Types_HandlerTypes_eventConfig<Types_FPTStaking_StakeEvent_eventFilter>>; 
-  contractRegister: Types_fnWithEventConfig<Types_FPTStaking_StakeEvent_contractRegister,Types_HandlerTypes_eventConfig<Types_FPTStaking_StakeEvent_eventFilter>>
-} } = HandlersJS.FPTStaking as any;

@@ -2,18 +2,16 @@ module ContractType = {
   @genType
   type t = 
     | @as("BorrowOperations") BorrowOperations
-    | @as("FPTStaking") FPTStaking
     | @as("StabilityPool") StabilityPool
     | @as("TroveManager") TroveManager
-    | @as("USDF") USDF
+    | @as("USDM") USDM
 
   let name = "CONTRACT_TYPE"
   let variants = [
     BorrowOperations,
-    FPTStaking,
     StabilityPool,
     TroveManager,
-    USDF,
+    USDM,
   ]
   let enum = Enum.make(~name, ~variants)
 }
@@ -24,17 +22,15 @@ module EntityType = {
     | @as("BorrowOperations_AdjustTroveEvent") BorrowOperations_AdjustTroveEvent
     | @as("BorrowOperations_CloseTroveEvent") BorrowOperations_CloseTroveEvent
     | @as("BorrowOperations_OpenTroveEvent") BorrowOperations_OpenTroveEvent
-    | @as("FPTStaking_StakeEvent") FPTStaking_StakeEvent
-    | @as("FPTStaking_UnstakeEvent") FPTStaking_UnstakeEvent
     | @as("StabilityPool_ProvideToStabilityPoolEvent") StabilityPool_ProvideToStabilityPoolEvent
     | @as("StabilityPool_StabilityPoolLiquidationEvent") StabilityPool_StabilityPoolLiquidationEvent
     | @as("StabilityPool_WithdrawFromStabilityPoolEvent") StabilityPool_WithdrawFromStabilityPoolEvent
     | @as("TroveManager_RedemptionEvent") TroveManager_RedemptionEvent
     | @as("TroveManager_TroveFullLiquidationEvent") TroveManager_TroveFullLiquidationEvent
     | @as("TroveManager_TrovePartialLiquidationEvent") TroveManager_TrovePartialLiquidationEvent
-    | @as("USDF_Burn") USDF_Burn
-    | @as("USDF_Mint") USDF_Mint
-    | @as("USDF_TotalSupplyEvent") USDF_TotalSupplyEvent
+    | @as("USDM_Burn") USDM_Burn
+    | @as("USDM_Mint") USDM_Mint
+    | @as("USDM_TotalSupplyEvent") USDM_TotalSupplyEvent
     | @as("dynamic_contract_registry") DynamicContractRegistry
 
   let name = "ENTITY_TYPE"
@@ -42,17 +38,15 @@ module EntityType = {
     BorrowOperations_AdjustTroveEvent,
     BorrowOperations_CloseTroveEvent,
     BorrowOperations_OpenTroveEvent,
-    FPTStaking_StakeEvent,
-    FPTStaking_UnstakeEvent,
     StabilityPool_ProvideToStabilityPoolEvent,
     StabilityPool_StabilityPoolLiquidationEvent,
     StabilityPool_WithdrawFromStabilityPoolEvent,
     TroveManager_RedemptionEvent,
     TroveManager_TroveFullLiquidationEvent,
     TroveManager_TrovePartialLiquidationEvent,
-    USDF_Burn,
-    USDF_Mint,
-    USDF_TotalSupplyEvent,
+    USDM_Burn,
+    USDM_Mint,
+    USDM_TotalSupplyEvent,
     DynamicContractRegistry,
   ]
 

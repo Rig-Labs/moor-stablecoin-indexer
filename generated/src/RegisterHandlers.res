@@ -31,7 +31,7 @@ let registerContractHandlers = (
             Config.name: "BorrowOperations",
             abi: Types.BorrowOperations.abi,
             addresses: [
-              "0xeda02ae9cbe68183ee86a0b5e7a475215fbafc307e5e6506f970fa6dcc15d62e"->Address.unsafeFromString
+              "0x783c5e5ea9a84350cfced8e217049a9f0ad70b11aaf42fc9ed9fd671bb401f97"->Address.unsafeFromString
               ,
             ],
             events: [
@@ -46,26 +46,10 @@ let registerContractHandlers = (
             ],
           },
           {
-            Config.name: "FPTStaking",
-            abi: Types.FPTStaking.abi,
-            addresses: [
-              "0xb86e9d843da16084fbfc06400f4d86ca2432f2487bf5ac6b776cab5449b1307f"->Address.unsafeFromString
-              ,
-            ],
-            events: [
-              module(Types.FPTStaking.StakeEvent),
-              module(Types.FPTStaking.UnstakeEvent),
-            ],
-            sighashes: [
-              Types.FPTStaking.StakeEvent.sighash,
-              Types.FPTStaking.UnstakeEvent.sighash,
-            ],
-          },
-          {
             Config.name: "StabilityPool",
             abi: Types.StabilityPool.abi,
             addresses: [
-              "0x90ae00be8f594c23ea87941a70574cd954fe1e1713470123b5111d6b04c37aef"->Address.unsafeFromString
+              "0xe8b947dc0d738024096c209f87968782ad328ed5e71b71f57d9e4018f9e686c0"->Address.unsafeFromString
               ,
             ],
             events: [
@@ -80,40 +64,32 @@ let registerContractHandlers = (
             ],
           },
           {
-            Config.name: "USDF",
-            abi: Types.USDF.abi,
+            Config.name: "USDM",
+            abi: Types.USDM.abi,
             addresses: [
-              "0x32deed96558e9572abce544aaf256724aee60517eeb1fabe76e86e4790c888b0"->Address.unsafeFromString
+              "0x4d991aecdf1615def5bdb432ab683394787182e5cfad83988b856c8d388e449f"->Address.unsafeFromString
               ,
             ],
             events: [
-              module(Types.USDF.TotalSupplyEvent),
-              module(Types.USDF.Mint),
-              module(Types.USDF.Burn),
+              module(Types.USDM.TotalSupplyEvent),
+              module(Types.USDM.Mint),
+              module(Types.USDM.Burn),
             ],
             sighashes: [
-              Types.USDF.TotalSupplyEvent.sighash,
-              Types.USDF.Mint.sighash,
-              Types.USDF.Burn.sighash,
+              Types.USDM.TotalSupplyEvent.sighash,
+              Types.USDM.Mint.sighash,
+              Types.USDM.Burn.sighash,
             ],
           },
           {
             Config.name: "TroveManager",
             abi: Types.TroveManager.abi,
             addresses: [
-              "0x8b90326e5e82ca3b0a2d0fa0ef42023d2df25360e538d5833e94599a1178c64f"->Address.unsafeFromString
+              "0x22a4c76edce873781e94a33627170656a507e1badf906fabdbdfaa3b5165a38c"->Address.unsafeFromString
               ,
-              "0x9eea94d170cfb8a1831e7c86e5167acad3e3d1166ddfc81c725377267622ec8e"->Address.unsafeFromString
+              "0xc944cfeb826b3a62b648fe81e397256cc24364367089febcb40a96bb454f8b70"->Address.unsafeFromString
               ,
-              "0x5e8956e557b1e0bc79d7064222d1e853163ff8edc928be8f5ec32c1abd13df7e"->Address.unsafeFromString
-              ,
-              "0x4cdbfd7958cffe4562357104271c23228139e5a77933f0d4795f52ca7b715353"->Address.unsafeFromString
-              ,
-              "0xd7fce11644efb7a878e99229e9ee2f6de93ebec23647a0e3fb67cfbf03233264"->Address.unsafeFromString
-              ,
-              "0xc20ae74bfb15fb05652d911c156767051aa0c9ee918668cc3db45094106c8388"->Address.unsafeFromString
-              ,
-              "0xde9d3793b761ec829edb5a3c48200f30dc4877e67e28f7194c8b457bbb41a1ef"->Address.unsafeFromString
+              "0x4fa56ee8ec817b31818407ba08c1a20c9d70cf0d245ce644d2ede713a50b4d58"->Address.unsafeFromString
               ,
             ],
             events: [
@@ -128,7 +104,7 @@ let registerContractHandlers = (
             ],
           },
         ]
-        let chain = ChainMap.Chain.makeUnsafe(~chainId=9889)
+        let chain = ChainMap.Chain.makeUnsafe(~chainId=0)
         {
           Config.confirmedBlockThreshold: 0,
           syncSource: 
@@ -141,7 +117,7 @@ let registerContractHandlers = (
           chainWorker:
             module(HyperFuelWorker.Make({
               let chain = chain
-              let endpointUrl = "https://fuel.hypersync.xyz"
+              let endpointUrl = "https://fuel-testnet.hypersync.xyz"
               let contracts: array<Internal.fuelContractConfig> = [
                 {
                   name: "BorrowOperations",
@@ -149,13 +125,6 @@ let registerContractHandlers = (
                     Types.BorrowOperations.OpenTroveEvent.register(),
                     Types.BorrowOperations.CloseTroveEvent.register(),
                     Types.BorrowOperations.AdjustTroveEvent.register(),
-                  ]
-                },
-                {
-                  name: "FPTStaking",
-                  events: [
-                    Types.FPTStaking.StakeEvent.register(),
-                    Types.FPTStaking.UnstakeEvent.register(),
                   ]
                 },
                 {
@@ -167,11 +136,11 @@ let registerContractHandlers = (
                   ]
                 },
                 {
-                  name: "USDF",
+                  name: "USDM",
                   events: [
-                    Types.USDF.TotalSupplyEvent.register(),
-                    Types.USDF.Mint.register(),
-                    Types.USDF.Burn.register(),
+                    Types.USDM.TotalSupplyEvent.register(),
+                    Types.USDM.Mint.register(),
+                    Types.USDM.Burn.register(),
                   ]
                 },
                 {
@@ -198,17 +167,15 @@ let registerContractHandlers = (
         module(Entities.BorrowOperations_AdjustTroveEvent),
         module(Entities.BorrowOperations_CloseTroveEvent),
         module(Entities.BorrowOperations_OpenTroveEvent),
-        module(Entities.FPTStaking_StakeEvent),
-        module(Entities.FPTStaking_UnstakeEvent),
         module(Entities.StabilityPool_ProvideToStabilityPoolEvent),
         module(Entities.StabilityPool_StabilityPoolLiquidationEvent),
         module(Entities.StabilityPool_WithdrawFromStabilityPoolEvent),
         module(Entities.TroveManager_RedemptionEvent),
         module(Entities.TroveManager_TroveFullLiquidationEvent),
         module(Entities.TroveManager_TrovePartialLiquidationEvent),
-        module(Entities.USDF_Burn),
-        module(Entities.USDF_Mint),
-        module(Entities.USDF_TotalSupplyEvent),
+        module(Entities.USDM_Burn),
+        module(Entities.USDM_Mint),
+        module(Entities.USDM_TotalSupplyEvent),
       ],
     )
   }
@@ -223,11 +190,6 @@ let registerAllHandlers = () => {
     ~handlerPathRelativeToConfig="src/EventHandlers.ts",
   )
   registerContractHandlers(
-    ~contractName="FPTStaking",
-    ~handlerPathRelativeToRoot="src/EventHandlers.ts",
-    ~handlerPathRelativeToConfig="src/EventHandlers.ts",
-  )
-  registerContractHandlers(
     ~contractName="StabilityPool",
     ~handlerPathRelativeToRoot="src/EventHandlers.ts",
     ~handlerPathRelativeToConfig="src/EventHandlers.ts",
@@ -238,7 +200,7 @@ let registerAllHandlers = () => {
     ~handlerPathRelativeToConfig="src/EventHandlers.ts",
   )
   registerContractHandlers(
-    ~contractName="USDF",
+    ~contractName="USDM",
     ~handlerPathRelativeToRoot="src/EventHandlers.ts",
     ~handlerPathRelativeToConfig="src/EventHandlers.ts",
   )

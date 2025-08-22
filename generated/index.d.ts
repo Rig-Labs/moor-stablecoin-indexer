@@ -1,27 +1,24 @@
 export {
   BorrowOperations,
-  FPTStaking,
   StabilityPool,
   TroveManager,
-  USDF,
+  USDM,
 } from "./src/Handlers.gen";
 export type * from "./src/Types.gen";
 import {
   BorrowOperations,
-  FPTStaking,
   StabilityPool,
   TroveManager,
-  USDF,
+  USDM,
 MockDb,
 Addresses 
 } from "./src/TestHelpers.gen";
 
 export const TestHelpers = {
   BorrowOperations,
-  FPTStaking,
   StabilityPool,
   TroveManager,
-  USDF,
+  USDM,
 MockDb,
 Addresses 
 };

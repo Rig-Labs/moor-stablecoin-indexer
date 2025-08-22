@@ -15,14 +15,6 @@ import type {BorrowOperations_OpenTroveEvent_indexedFieldOperations as Entities_
 
 import type {BorrowOperations_OpenTroveEvent_t as Entities_BorrowOperations_OpenTroveEvent_t} from '../src/db/Entities.gen';
 
-import type {FPTStaking_StakeEvent_indexedFieldOperations as Entities_FPTStaking_StakeEvent_indexedFieldOperations} from '../src/db/Entities.gen';
-
-import type {FPTStaking_StakeEvent_t as Entities_FPTStaking_StakeEvent_t} from '../src/db/Entities.gen';
-
-import type {FPTStaking_UnstakeEvent_indexedFieldOperations as Entities_FPTStaking_UnstakeEvent_indexedFieldOperations} from '../src/db/Entities.gen';
-
-import type {FPTStaking_UnstakeEvent_t as Entities_FPTStaking_UnstakeEvent_t} from '../src/db/Entities.gen';
-
 import type {HandlerWithOptions as $$fnWithEventConfig} from './bindings/OpaqueTypes.ts';
 
 import type {SingleOrMultiple as $$SingleOrMultiple_t} from './bindings/OpaqueTypes';
@@ -51,17 +43,17 @@ import type {TroveManager_TrovePartialLiquidationEvent_indexedFieldOperations as
 
 import type {TroveManager_TrovePartialLiquidationEvent_t as Entities_TroveManager_TrovePartialLiquidationEvent_t} from '../src/db/Entities.gen';
 
-import type {USDF_Burn_indexedFieldOperations as Entities_USDF_Burn_indexedFieldOperations} from '../src/db/Entities.gen';
+import type {USDM_Burn_indexedFieldOperations as Entities_USDM_Burn_indexedFieldOperations} from '../src/db/Entities.gen';
 
-import type {USDF_Burn_t as Entities_USDF_Burn_t} from '../src/db/Entities.gen';
+import type {USDM_Burn_t as Entities_USDM_Burn_t} from '../src/db/Entities.gen';
 
-import type {USDF_Mint_indexedFieldOperations as Entities_USDF_Mint_indexedFieldOperations} from '../src/db/Entities.gen';
+import type {USDM_Mint_indexedFieldOperations as Entities_USDM_Mint_indexedFieldOperations} from '../src/db/Entities.gen';
 
-import type {USDF_Mint_t as Entities_USDF_Mint_t} from '../src/db/Entities.gen';
+import type {USDM_Mint_t as Entities_USDM_Mint_t} from '../src/db/Entities.gen';
 
-import type {USDF_TotalSupplyEvent_indexedFieldOperations as Entities_USDF_TotalSupplyEvent_indexedFieldOperations} from '../src/db/Entities.gen';
+import type {USDM_TotalSupplyEvent_indexedFieldOperations as Entities_USDM_TotalSupplyEvent_indexedFieldOperations} from '../src/db/Entities.gen';
 
-import type {USDF_TotalSupplyEvent_t as Entities_USDF_TotalSupplyEvent_t} from '../src/db/Entities.gen';
+import type {USDM_TotalSupplyEvent_t as Entities_USDM_TotalSupplyEvent_t} from '../src/db/Entities.gen';
 
 import type {fuelSupplyParams as Internal_fuelSupplyParams} from 'envio/src/Internal.gen';
 
@@ -90,10 +82,9 @@ export type Id = id;
 
 export type contractRegistrations = {
   readonly addBorrowOperations: (_1:Address_t) => void; 
-  readonly addFPTStaking: (_1:Address_t) => void; 
   readonly addStabilityPool: (_1:Address_t) => void; 
   readonly addTroveManager: (_1:Address_t) => void; 
-  readonly addUSDF: (_1:Address_t) => void
+  readonly addUSDM: (_1:Address_t) => void
 };
 
 export type entityLoaderContext<entity,indexedFieldOperations> = { readonly get: (_1:id) => Promise<(undefined | entity)>; readonly getWhere: indexedFieldOperations };
@@ -103,17 +94,15 @@ export type loaderContext = {
   readonly BorrowOperations_AdjustTroveEvent: entityLoaderContext<Entities_BorrowOperations_AdjustTroveEvent_t,Entities_BorrowOperations_AdjustTroveEvent_indexedFieldOperations>; 
   readonly BorrowOperations_CloseTroveEvent: entityLoaderContext<Entities_BorrowOperations_CloseTroveEvent_t,Entities_BorrowOperations_CloseTroveEvent_indexedFieldOperations>; 
   readonly BorrowOperations_OpenTroveEvent: entityLoaderContext<Entities_BorrowOperations_OpenTroveEvent_t,Entities_BorrowOperations_OpenTroveEvent_indexedFieldOperations>; 
-  readonly FPTStaking_StakeEvent: entityLoaderContext<Entities_FPTStaking_StakeEvent_t,Entities_FPTStaking_StakeEvent_indexedFieldOperations>; 
-  readonly FPTStaking_UnstakeEvent: entityLoaderContext<Entities_FPTStaking_UnstakeEvent_t,Entities_FPTStaking_UnstakeEvent_indexedFieldOperations>; 
   readonly StabilityPool_ProvideToStabilityPoolEvent: entityLoaderContext<Entities_StabilityPool_ProvideToStabilityPoolEvent_t,Entities_StabilityPool_ProvideToStabilityPoolEvent_indexedFieldOperations>; 
   readonly StabilityPool_StabilityPoolLiquidationEvent: entityLoaderContext<Entities_StabilityPool_StabilityPoolLiquidationEvent_t,Entities_StabilityPool_StabilityPoolLiquidationEvent_indexedFieldOperations>; 
   readonly StabilityPool_WithdrawFromStabilityPoolEvent: entityLoaderContext<Entities_StabilityPool_WithdrawFromStabilityPoolEvent_t,Entities_StabilityPool_WithdrawFromStabilityPoolEvent_indexedFieldOperations>; 
   readonly TroveManager_RedemptionEvent: entityLoaderContext<Entities_TroveManager_RedemptionEvent_t,Entities_TroveManager_RedemptionEvent_indexedFieldOperations>; 
   readonly TroveManager_TroveFullLiquidationEvent: entityLoaderContext<Entities_TroveManager_TroveFullLiquidationEvent_t,Entities_TroveManager_TroveFullLiquidationEvent_indexedFieldOperations>; 
   readonly TroveManager_TrovePartialLiquidationEvent: entityLoaderContext<Entities_TroveManager_TrovePartialLiquidationEvent_t,Entities_TroveManager_TrovePartialLiquidationEvent_indexedFieldOperations>; 
-  readonly USDF_Burn: entityLoaderContext<Entities_USDF_Burn_t,Entities_USDF_Burn_indexedFieldOperations>; 
-  readonly USDF_Mint: entityLoaderContext<Entities_USDF_Mint_t,Entities_USDF_Mint_indexedFieldOperations>; 
-  readonly USDF_TotalSupplyEvent: entityLoaderContext<Entities_USDF_TotalSupplyEvent_t,Entities_USDF_TotalSupplyEvent_indexedFieldOperations>
+  readonly USDM_Burn: entityLoaderContext<Entities_USDM_Burn_t,Entities_USDM_Burn_indexedFieldOperations>; 
+  readonly USDM_Mint: entityLoaderContext<Entities_USDM_Mint_t,Entities_USDM_Mint_indexedFieldOperations>; 
+  readonly USDM_TotalSupplyEvent: entityLoaderContext<Entities_USDM_TotalSupplyEvent_t,Entities_USDM_TotalSupplyEvent_indexedFieldOperations>
 };
 
 export type entityHandlerContext<entity> = {
@@ -127,17 +116,15 @@ export type handlerContext = {
   readonly BorrowOperations_AdjustTroveEvent: entityHandlerContext<Entities_BorrowOperations_AdjustTroveEvent_t>; 
   readonly BorrowOperations_CloseTroveEvent: entityHandlerContext<Entities_BorrowOperations_CloseTroveEvent_t>; 
   readonly BorrowOperations_OpenTroveEvent: entityHandlerContext<Entities_BorrowOperations_OpenTroveEvent_t>; 
-  readonly FPTStaking_StakeEvent: entityHandlerContext<Entities_FPTStaking_StakeEvent_t>; 
-  readonly FPTStaking_UnstakeEvent: entityHandlerContext<Entities_FPTStaking_UnstakeEvent_t>; 
   readonly StabilityPool_ProvideToStabilityPoolEvent: entityHandlerContext<Entities_StabilityPool_ProvideToStabilityPoolEvent_t>; 
   readonly StabilityPool_StabilityPoolLiquidationEvent: entityHandlerContext<Entities_StabilityPool_StabilityPoolLiquidationEvent_t>; 
   readonly StabilityPool_WithdrawFromStabilityPoolEvent: entityHandlerContext<Entities_StabilityPool_WithdrawFromStabilityPoolEvent_t>; 
   readonly TroveManager_RedemptionEvent: entityHandlerContext<Entities_TroveManager_RedemptionEvent_t>; 
   readonly TroveManager_TroveFullLiquidationEvent: entityHandlerContext<Entities_TroveManager_TroveFullLiquidationEvent_t>; 
   readonly TroveManager_TrovePartialLiquidationEvent: entityHandlerContext<Entities_TroveManager_TrovePartialLiquidationEvent_t>; 
-  readonly USDF_Burn: entityHandlerContext<Entities_USDF_Burn_t>; 
-  readonly USDF_Mint: entityHandlerContext<Entities_USDF_Mint_t>; 
-  readonly USDF_TotalSupplyEvent: entityHandlerContext<Entities_USDF_TotalSupplyEvent_t>
+  readonly USDM_Burn: entityHandlerContext<Entities_USDM_Burn_t>; 
+  readonly USDM_Mint: entityHandlerContext<Entities_USDM_Mint_t>; 
+  readonly USDM_TotalSupplyEvent: entityHandlerContext<Entities_USDM_TotalSupplyEvent_t>
 };
 
 export type borrowOperations_AdjustTroveEvent = Entities_BorrowOperations_AdjustTroveEvent_t;
@@ -148,12 +135,6 @@ export type BorrowOperations_CloseTroveEvent = borrowOperations_CloseTroveEvent;
 
 export type borrowOperations_OpenTroveEvent = Entities_BorrowOperations_OpenTroveEvent_t;
 export type BorrowOperations_OpenTroveEvent = borrowOperations_OpenTroveEvent;
-
-export type fPTStaking_StakeEvent = Entities_FPTStaking_StakeEvent_t;
-export type FPTStaking_StakeEvent = fPTStaking_StakeEvent;
-
-export type fPTStaking_UnstakeEvent = Entities_FPTStaking_UnstakeEvent_t;
-export type FPTStaking_UnstakeEvent = fPTStaking_UnstakeEvent;
 
 export type stabilityPool_ProvideToStabilityPoolEvent = Entities_StabilityPool_ProvideToStabilityPoolEvent_t;
 export type StabilityPool_ProvideToStabilityPoolEvent = stabilityPool_ProvideToStabilityPoolEvent;
@@ -173,14 +154,14 @@ export type TroveManager_TroveFullLiquidationEvent = troveManager_TroveFullLiqui
 export type troveManager_TrovePartialLiquidationEvent = Entities_TroveManager_TrovePartialLiquidationEvent_t;
 export type TroveManager_TrovePartialLiquidationEvent = troveManager_TrovePartialLiquidationEvent;
 
-export type uSDF_Burn = Entities_USDF_Burn_t;
-export type USDF_Burn = uSDF_Burn;
+export type uSDM_Burn = Entities_USDM_Burn_t;
+export type USDM_Burn = uSDM_Burn;
 
-export type uSDF_Mint = Entities_USDF_Mint_t;
-export type USDF_Mint = uSDF_Mint;
+export type uSDM_Mint = Entities_USDM_Mint_t;
+export type USDM_Mint = uSDM_Mint;
 
-export type uSDF_TotalSupplyEvent = Entities_USDF_TotalSupplyEvent_t;
-export type USDF_TotalSupplyEvent = uSDF_TotalSupplyEvent;
+export type uSDM_TotalSupplyEvent = Entities_USDM_TotalSupplyEvent_t;
+export type USDM_TotalSupplyEvent = uSDM_TotalSupplyEvent;
 
 export type eventIdentifier = {
   readonly chainId: number; 
@@ -345,54 +326,6 @@ export type BorrowOperations_AdjustTroveEvent_contractRegister = Internal_generi
 
 export type BorrowOperations_AdjustTroveEvent_eventFilter = {};
 
-export type FPTStaking_type0 = string;
-
-export type FPTStaking_type2 = 
-    { case: "Address"; readonly payload: FPTStaking_type6 }
-  | { case: "ContractId"; readonly payload: FPTStaking_type8 };
-
-export type FPTStaking_type3 = { readonly user: FPTStaking_type2; readonly amount: FPTStaking_type11 };
-
-export type FPTStaking_type4 = { readonly user: FPTStaking_type2; readonly amount: FPTStaking_type11 };
-
-export type FPTStaking_type6 = { readonly bits: FPTStaking_type0 };
-
-export type FPTStaking_type8 = { readonly bits: FPTStaking_type0 };
-
-export type FPTStaking_type11 = bigint;
-
-export type FPTStaking_StakeEvent_eventArgs = FPTStaking_type3;
-
-export type FPTStaking_StakeEvent_block = Block_t;
-
-export type FPTStaking_StakeEvent_transaction = Transaction_t;
-
-export type FPTStaking_StakeEvent_event = Internal_genericEvent<FPTStaking_StakeEvent_eventArgs,FPTStaking_StakeEvent_block,FPTStaking_StakeEvent_transaction>;
-
-export type FPTStaking_StakeEvent_loader<loaderReturn> = Internal_genericLoader<Internal_genericLoaderArgs<FPTStaking_StakeEvent_event,loaderContext>,loaderReturn>;
-
-export type FPTStaking_StakeEvent_handler<loaderReturn> = Internal_genericHandler<Internal_genericHandlerArgs<FPTStaking_StakeEvent_event,handlerContext,loaderReturn>>;
-
-export type FPTStaking_StakeEvent_contractRegister = Internal_genericContractRegister<Internal_genericContractRegisterArgs<FPTStaking_StakeEvent_event,contractRegistrations>>;
-
-export type FPTStaking_StakeEvent_eventFilter = {};
-
-export type FPTStaking_UnstakeEvent_eventArgs = FPTStaking_type4;
-
-export type FPTStaking_UnstakeEvent_block = Block_t;
-
-export type FPTStaking_UnstakeEvent_transaction = Transaction_t;
-
-export type FPTStaking_UnstakeEvent_event = Internal_genericEvent<FPTStaking_UnstakeEvent_eventArgs,FPTStaking_UnstakeEvent_block,FPTStaking_UnstakeEvent_transaction>;
-
-export type FPTStaking_UnstakeEvent_loader<loaderReturn> = Internal_genericLoader<Internal_genericLoaderArgs<FPTStaking_UnstakeEvent_event,loaderContext>,loaderReturn>;
-
-export type FPTStaking_UnstakeEvent_handler<loaderReturn> = Internal_genericHandler<Internal_genericHandlerArgs<FPTStaking_UnstakeEvent_event,handlerContext,loaderReturn>>;
-
-export type FPTStaking_UnstakeEvent_contractRegister = Internal_genericContractRegister<Internal_genericContractRegisterArgs<FPTStaking_UnstakeEvent_event,contractRegistrations>>;
-
-export type FPTStaking_UnstakeEvent_eventFilter = {};
-
 export type StabilityPool_type0 = string;
 
 export type StabilityPool_type1 = 
@@ -483,7 +416,7 @@ export type TroveManager_type3 =
 
 export type TroveManager_type6 = {
   readonly borrower: TroveManager_type3; 
-  readonly usdf_amount: TroveManager_type19; 
+  readonly usdm_amount: TroveManager_type19; 
   readonly collateral_amount: TroveManager_type19; 
   readonly collateral_price: TroveManager_type19
 };
@@ -554,72 +487,72 @@ export type TroveManager_RedemptionEvent_contractRegister = Internal_genericCont
 
 export type TroveManager_RedemptionEvent_eventFilter = {};
 
-export type USDF_type0 = 
-    { case: "Address"; readonly payload: USDF_type8 }
-  | { case: "ContractId"; readonly payload: USDF_type12 };
+export type USDM_type0 = 
+    { case: "Address"; readonly payload: USDM_type8 }
+  | { case: "ContractId"; readonly payload: USDM_type12 };
 
-export type USDF_type7 = {
-  readonly asset: USDF_type9; 
-  readonly supply: USDF_type17; 
-  readonly sender: USDF_type0
+export type USDM_type7 = {
+  readonly asset: USDM_type9; 
+  readonly supply: USDM_type17; 
+  readonly sender: USDM_type0
 };
 
-export type USDF_type8 = { readonly bits: USDF_type15 };
+export type USDM_type8 = { readonly bits: USDM_type15 };
 
-export type USDF_type9 = { readonly bits: USDF_type15 };
+export type USDM_type9 = { readonly bits: USDM_type15 };
 
-export type USDF_type12 = { readonly bits: USDF_type15 };
+export type USDM_type12 = { readonly bits: USDM_type15 };
 
-export type USDF_type15 = string;
+export type USDM_type15 = string;
 
-export type USDF_type17 = bigint;
+export type USDM_type17 = bigint;
 
-export type USDF_TotalSupplyEvent_eventArgs = USDF_type7;
+export type USDM_TotalSupplyEvent_eventArgs = USDM_type7;
 
-export type USDF_TotalSupplyEvent_block = Block_t;
+export type USDM_TotalSupplyEvent_block = Block_t;
 
-export type USDF_TotalSupplyEvent_transaction = Transaction_t;
+export type USDM_TotalSupplyEvent_transaction = Transaction_t;
 
-export type USDF_TotalSupplyEvent_event = Internal_genericEvent<USDF_TotalSupplyEvent_eventArgs,USDF_TotalSupplyEvent_block,USDF_TotalSupplyEvent_transaction>;
+export type USDM_TotalSupplyEvent_event = Internal_genericEvent<USDM_TotalSupplyEvent_eventArgs,USDM_TotalSupplyEvent_block,USDM_TotalSupplyEvent_transaction>;
 
-export type USDF_TotalSupplyEvent_loader<loaderReturn> = Internal_genericLoader<Internal_genericLoaderArgs<USDF_TotalSupplyEvent_event,loaderContext>,loaderReturn>;
+export type USDM_TotalSupplyEvent_loader<loaderReturn> = Internal_genericLoader<Internal_genericLoaderArgs<USDM_TotalSupplyEvent_event,loaderContext>,loaderReturn>;
 
-export type USDF_TotalSupplyEvent_handler<loaderReturn> = Internal_genericHandler<Internal_genericHandlerArgs<USDF_TotalSupplyEvent_event,handlerContext,loaderReturn>>;
+export type USDM_TotalSupplyEvent_handler<loaderReturn> = Internal_genericHandler<Internal_genericHandlerArgs<USDM_TotalSupplyEvent_event,handlerContext,loaderReturn>>;
 
-export type USDF_TotalSupplyEvent_contractRegister = Internal_genericContractRegister<Internal_genericContractRegisterArgs<USDF_TotalSupplyEvent_event,contractRegistrations>>;
+export type USDM_TotalSupplyEvent_contractRegister = Internal_genericContractRegister<Internal_genericContractRegisterArgs<USDM_TotalSupplyEvent_event,contractRegistrations>>;
 
-export type USDF_TotalSupplyEvent_eventFilter = {};
+export type USDM_TotalSupplyEvent_eventFilter = {};
 
-export type USDF_Mint_eventArgs = Internal_fuelSupplyParams;
+export type USDM_Mint_eventArgs = Internal_fuelSupplyParams;
 
-export type USDF_Mint_block = Block_t;
+export type USDM_Mint_block = Block_t;
 
-export type USDF_Mint_transaction = Transaction_t;
+export type USDM_Mint_transaction = Transaction_t;
 
-export type USDF_Mint_event = Internal_genericEvent<USDF_Mint_eventArgs,USDF_Mint_block,USDF_Mint_transaction>;
+export type USDM_Mint_event = Internal_genericEvent<USDM_Mint_eventArgs,USDM_Mint_block,USDM_Mint_transaction>;
 
-export type USDF_Mint_loader<loaderReturn> = Internal_genericLoader<Internal_genericLoaderArgs<USDF_Mint_event,loaderContext>,loaderReturn>;
+export type USDM_Mint_loader<loaderReturn> = Internal_genericLoader<Internal_genericLoaderArgs<USDM_Mint_event,loaderContext>,loaderReturn>;
 
-export type USDF_Mint_handler<loaderReturn> = Internal_genericHandler<Internal_genericHandlerArgs<USDF_Mint_event,handlerContext,loaderReturn>>;
+export type USDM_Mint_handler<loaderReturn> = Internal_genericHandler<Internal_genericHandlerArgs<USDM_Mint_event,handlerContext,loaderReturn>>;
 
-export type USDF_Mint_contractRegister = Internal_genericContractRegister<Internal_genericContractRegisterArgs<USDF_Mint_event,contractRegistrations>>;
+export type USDM_Mint_contractRegister = Internal_genericContractRegister<Internal_genericContractRegisterArgs<USDM_Mint_event,contractRegistrations>>;
 
-export type USDF_Mint_eventFilter = {};
+export type USDM_Mint_eventFilter = {};
 
-export type USDF_Burn_eventArgs = Internal_fuelSupplyParams;
+export type USDM_Burn_eventArgs = Internal_fuelSupplyParams;
 
-export type USDF_Burn_block = Block_t;
+export type USDM_Burn_block = Block_t;
 
-export type USDF_Burn_transaction = Transaction_t;
+export type USDM_Burn_transaction = Transaction_t;
 
-export type USDF_Burn_event = Internal_genericEvent<USDF_Burn_eventArgs,USDF_Burn_block,USDF_Burn_transaction>;
+export type USDM_Burn_event = Internal_genericEvent<USDM_Burn_eventArgs,USDM_Burn_block,USDM_Burn_transaction>;
 
-export type USDF_Burn_loader<loaderReturn> = Internal_genericLoader<Internal_genericLoaderArgs<USDF_Burn_event,loaderContext>,loaderReturn>;
+export type USDM_Burn_loader<loaderReturn> = Internal_genericLoader<Internal_genericLoaderArgs<USDM_Burn_event,loaderContext>,loaderReturn>;
 
-export type USDF_Burn_handler<loaderReturn> = Internal_genericHandler<Internal_genericHandlerArgs<USDF_Burn_event,handlerContext,loaderReturn>>;
+export type USDM_Burn_handler<loaderReturn> = Internal_genericHandler<Internal_genericHandlerArgs<USDM_Burn_event,handlerContext,loaderReturn>>;
 
-export type USDF_Burn_contractRegister = Internal_genericContractRegister<Internal_genericContractRegisterArgs<USDF_Burn_event,contractRegistrations>>;
+export type USDM_Burn_contractRegister = Internal_genericContractRegister<Internal_genericContractRegisterArgs<USDM_Burn_event,contractRegistrations>>;
 
-export type USDF_Burn_eventFilter = {};
+export type USDM_Burn_eventFilter = {};
 
 export type chainId = number;

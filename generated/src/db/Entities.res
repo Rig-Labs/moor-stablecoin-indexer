@@ -402,172 +402,6 @@ module BorrowOperations_OpenTroveEvent = {
   let entityHistory = table->EntityHistory.fromTable(~schema)
 }
 
-module FPTStaking_StakeEvent = {
-  let name = FPTStaking_StakeEvent
-  @genType
-  type t = {
-    amount: bigint,
-    id: id,
-    identity: string,
-    timestamp: int,
-    txHash: string,
-  }
-
-  let schema = S.object((s): t => {
-    amount: s.field("amount", BigInt.schema),
-    id: s.field("id", S.string),
-    identity: s.field("identity", S.string),
-    timestamp: s.field("timestamp", GqlDbCustomTypes.Int.schema),
-    txHash: s.field("txHash", S.string),
-  })
-
-  let rowsSchema = S.array(schema)
-
-  @genType
-  type indexedFieldOperations = {
-    
-      @as("identity") identity: whereOperations<t, string>,
-    
-  }
-
-  let table = mkTable(
-     (name :> string),
-    ~fields=[
-      mkField(
-      "amount", 
-      Numeric,
-      
-      
-      
-      
-      
-      ),
-      mkField(
-      "id", 
-      Text,
-      ~isPrimaryKey,
-      
-      
-      
-      
-      ),
-      mkField(
-      "identity", 
-      Text,
-      
-      
-      
-      ~isIndex,
-      
-      ),
-      mkField(
-      "timestamp", 
-      Integer,
-      
-      
-      
-      
-      
-      ),
-      mkField(
-      "txHash", 
-      Text,
-      
-      
-      
-      
-      
-      ),
-      mkField("db_write_timestamp", TimestampWithoutTimezone, ~default="CURRENT_TIMESTAMP"),
-    ],
-  )
-
-  let entityHistory = table->EntityHistory.fromTable(~schema)
-}
-
-module FPTStaking_UnstakeEvent = {
-  let name = FPTStaking_UnstakeEvent
-  @genType
-  type t = {
-    amount: bigint,
-    id: id,
-    identity: string,
-    timestamp: int,
-    txHash: string,
-  }
-
-  let schema = S.object((s): t => {
-    amount: s.field("amount", BigInt.schema),
-    id: s.field("id", S.string),
-    identity: s.field("identity", S.string),
-    timestamp: s.field("timestamp", GqlDbCustomTypes.Int.schema),
-    txHash: s.field("txHash", S.string),
-  })
-
-  let rowsSchema = S.array(schema)
-
-  @genType
-  type indexedFieldOperations = {
-    
-      @as("identity") identity: whereOperations<t, string>,
-    
-  }
-
-  let table = mkTable(
-     (name :> string),
-    ~fields=[
-      mkField(
-      "amount", 
-      Numeric,
-      
-      
-      
-      
-      
-      ),
-      mkField(
-      "id", 
-      Text,
-      ~isPrimaryKey,
-      
-      
-      
-      
-      ),
-      mkField(
-      "identity", 
-      Text,
-      
-      
-      
-      ~isIndex,
-      
-      ),
-      mkField(
-      "timestamp", 
-      Integer,
-      
-      
-      
-      
-      
-      ),
-      mkField(
-      "txHash", 
-      Text,
-      
-      
-      
-      
-      
-      ),
-      mkField("db_write_timestamp", TimestampWithoutTimezone, ~default="CURRENT_TIMESTAMP"),
-    ],
-  )
-
-  let entityHistory = table->EntityHistory.fromTable(~schema)
-}
-
 module StabilityPool_ProvideToStabilityPoolEvent = {
   let name = StabilityPool_ProvideToStabilityPoolEvent
   @genType
@@ -861,7 +695,7 @@ module TroveManager_RedemptionEvent = {
     identity: string,
     timestamp: int,
     txHash: string,
-    usdf_amount: bigint,
+    usdm_amount: bigint,
   }
 
   let schema = S.object((s): t => {
@@ -872,7 +706,7 @@ module TroveManager_RedemptionEvent = {
     identity: s.field("identity", S.string),
     timestamp: s.field("timestamp", GqlDbCustomTypes.Int.schema),
     txHash: s.field("txHash", S.string),
-    usdf_amount: s.field("usdf_amount", BigInt.schema),
+    usdm_amount: s.field("usdm_amount", BigInt.schema),
   })
 
   let rowsSchema = S.array(schema)
@@ -953,7 +787,7 @@ module TroveManager_RedemptionEvent = {
       
       ),
       mkField(
-      "usdf_amount", 
+      "usdm_amount", 
       Numeric,
       
       
@@ -1182,8 +1016,8 @@ module TroveManager_TrovePartialLiquidationEvent = {
   let entityHistory = table->EntityHistory.fromTable(~schema)
 }
 
-module USDF_Burn = {
-  let name = USDF_Burn
+module USDM_Burn = {
+  let name = USDM_Burn
   @genType
   type t = {
     amount: bigint,
@@ -1252,8 +1086,8 @@ module USDF_Burn = {
   let entityHistory = table->EntityHistory.fromTable(~schema)
 }
 
-module USDF_Mint = {
-  let name = USDF_Mint
+module USDM_Mint = {
+  let name = USDM_Mint
   @genType
   type t = {
     amount: bigint,
@@ -1322,8 +1156,8 @@ module USDF_Mint = {
   let entityHistory = table->EntityHistory.fromTable(~schema)
 }
 
-module USDF_TotalSupplyEvent = {
-  let name = USDF_TotalSupplyEvent
+module USDM_TotalSupplyEvent = {
+  let name = USDM_TotalSupplyEvent
   @genType
   type t = {
     amount: bigint,
@@ -1396,16 +1230,14 @@ let allEntities = [
   module(BorrowOperations_AdjustTroveEvent),
   module(BorrowOperations_CloseTroveEvent),
   module(BorrowOperations_OpenTroveEvent),
-  module(FPTStaking_StakeEvent),
-  module(FPTStaking_UnstakeEvent),
   module(StabilityPool_ProvideToStabilityPoolEvent),
   module(StabilityPool_StabilityPoolLiquidationEvent),
   module(StabilityPool_WithdrawFromStabilityPoolEvent),
   module(TroveManager_RedemptionEvent),
   module(TroveManager_TroveFullLiquidationEvent),
   module(TroveManager_TrovePartialLiquidationEvent),
-  module(USDF_Burn),
-  module(USDF_Mint),
-  module(USDF_TotalSupplyEvent),
+  module(USDM_Burn),
+  module(USDM_Mint),
+  module(USDM_TotalSupplyEvent),
   module(TablesStatic.DynamicContractRegistry),
 ]->entityModsToInternal

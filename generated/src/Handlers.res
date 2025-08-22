@@ -6,12 +6,6 @@ module BorrowOperations = {
 }
 
   @genType
-module FPTStaking = {
-  module StakeEvent = Types.MakeRegister(Types.FPTStaking.StakeEvent)
-  module UnstakeEvent = Types.MakeRegister(Types.FPTStaking.UnstakeEvent)
-}
-
-  @genType
 module StabilityPool = {
   module StabilityPoolLiquidationEvent = Types.MakeRegister(Types.StabilityPool.StabilityPoolLiquidationEvent)
   module ProvideToStabilityPoolEvent = Types.MakeRegister(Types.StabilityPool.ProvideToStabilityPoolEvent)
@@ -26,9 +20,9 @@ module TroveManager = {
 }
 
   @genType
-module USDF = {
-  module TotalSupplyEvent = Types.MakeRegister(Types.USDF.TotalSupplyEvent)
-  module Mint = Types.MakeRegister(Types.USDF.Mint)
-  module Burn = Types.MakeRegister(Types.USDF.Burn)
+module USDM = {
+  module TotalSupplyEvent = Types.MakeRegister(Types.USDM.TotalSupplyEvent)
+  module Mint = Types.MakeRegister(Types.USDM.Mint)
+  module Burn = Types.MakeRegister(Types.USDM.Burn)
 }
 

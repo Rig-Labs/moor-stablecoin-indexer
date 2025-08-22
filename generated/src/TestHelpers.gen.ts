@@ -17,14 +17,6 @@ import type {BorrowOperations_OpenTroveEvent_eventArgs as Types_BorrowOperations
 
 import type {BorrowOperations_OpenTroveEvent_event as Types_BorrowOperations_OpenTroveEvent_event} from './Types.gen';
 
-import type {FPTStaking_StakeEvent_eventArgs as Types_FPTStaking_StakeEvent_eventArgs} from './Types.gen';
-
-import type {FPTStaking_StakeEvent_event as Types_FPTStaking_StakeEvent_event} from './Types.gen';
-
-import type {FPTStaking_UnstakeEvent_eventArgs as Types_FPTStaking_UnstakeEvent_eventArgs} from './Types.gen';
-
-import type {FPTStaking_UnstakeEvent_event as Types_FPTStaking_UnstakeEvent_event} from './Types.gen';
-
 import type {StabilityPool_ProvideToStabilityPoolEvent_eventArgs as Types_StabilityPool_ProvideToStabilityPoolEvent_eventArgs} from './Types.gen';
 
 import type {StabilityPool_ProvideToStabilityPoolEvent_event as Types_StabilityPool_ProvideToStabilityPoolEvent_event} from './Types.gen';
@@ -49,17 +41,17 @@ import type {TroveManager_TrovePartialLiquidationEvent_eventArgs as Types_TroveM
 
 import type {TroveManager_TrovePartialLiquidationEvent_event as Types_TroveManager_TrovePartialLiquidationEvent_event} from './Types.gen';
 
-import type {USDF_Burn_eventArgs as Types_USDF_Burn_eventArgs} from './Types.gen';
+import type {USDM_Burn_eventArgs as Types_USDM_Burn_eventArgs} from './Types.gen';
 
-import type {USDF_Burn_event as Types_USDF_Burn_event} from './Types.gen';
+import type {USDM_Burn_event as Types_USDM_Burn_event} from './Types.gen';
 
-import type {USDF_Mint_eventArgs as Types_USDF_Mint_eventArgs} from './Types.gen';
+import type {USDM_Mint_eventArgs as Types_USDM_Mint_eventArgs} from './Types.gen';
 
-import type {USDF_Mint_event as Types_USDF_Mint_event} from './Types.gen';
+import type {USDM_Mint_event as Types_USDM_Mint_event} from './Types.gen';
 
-import type {USDF_TotalSupplyEvent_eventArgs as Types_USDF_TotalSupplyEvent_eventArgs} from './Types.gen';
+import type {USDM_TotalSupplyEvent_eventArgs as Types_USDM_TotalSupplyEvent_eventArgs} from './Types.gen';
 
-import type {USDF_TotalSupplyEvent_event as Types_USDF_TotalSupplyEvent_event} from './Types.gen';
+import type {USDM_TotalSupplyEvent_event as Types_USDM_TotalSupplyEvent_event} from './Types.gen';
 
 import type {t as Address_t} from 'envio/src/Address.gen';
 
@@ -108,14 +100,6 @@ export const BorrowOperations_AdjustTroveEvent_processEvent: EventFunctions_even
 
 export const BorrowOperations_AdjustTroveEvent_mockData: (params:Types_BorrowOperations_AdjustTroveEvent_eventArgs) => Types_BorrowOperations_AdjustTroveEvent_event = TestHelpersJS.BorrowOperations.AdjustTroveEvent.mockData as any;
 
-export const FPTStaking_StakeEvent_processEvent: EventFunctions_eventProcessor<Types_FPTStaking_StakeEvent_event> = TestHelpersJS.FPTStaking.StakeEvent.processEvent as any;
-
-export const FPTStaking_StakeEvent_mockData: (params:Types_FPTStaking_StakeEvent_eventArgs) => Types_FPTStaking_StakeEvent_event = TestHelpersJS.FPTStaking.StakeEvent.mockData as any;
-
-export const FPTStaking_UnstakeEvent_processEvent: EventFunctions_eventProcessor<Types_FPTStaking_UnstakeEvent_event> = TestHelpersJS.FPTStaking.UnstakeEvent.processEvent as any;
-
-export const FPTStaking_UnstakeEvent_mockData: (params:Types_FPTStaking_UnstakeEvent_eventArgs) => Types_FPTStaking_UnstakeEvent_event = TestHelpersJS.FPTStaking.UnstakeEvent.mockData as any;
-
 export const StabilityPool_StabilityPoolLiquidationEvent_processEvent: EventFunctions_eventProcessor<Types_StabilityPool_StabilityPoolLiquidationEvent_event> = TestHelpersJS.StabilityPool.StabilityPoolLiquidationEvent.processEvent as any;
 
 export const StabilityPool_StabilityPoolLiquidationEvent_mockData: (params:Types_StabilityPool_StabilityPoolLiquidationEvent_eventArgs) => Types_StabilityPool_StabilityPoolLiquidationEvent_event = TestHelpersJS.StabilityPool.StabilityPoolLiquidationEvent.mockData as any;
@@ -140,34 +124,19 @@ export const TroveManager_RedemptionEvent_processEvent: EventFunctions_eventProc
 
 export const TroveManager_RedemptionEvent_mockData: (params:Types_TroveManager_RedemptionEvent_eventArgs) => Types_TroveManager_RedemptionEvent_event = TestHelpersJS.TroveManager.RedemptionEvent.mockData as any;
 
-export const USDF_TotalSupplyEvent_processEvent: EventFunctions_eventProcessor<Types_USDF_TotalSupplyEvent_event> = TestHelpersJS.USDF.TotalSupplyEvent.processEvent as any;
+export const USDM_TotalSupplyEvent_processEvent: EventFunctions_eventProcessor<Types_USDM_TotalSupplyEvent_event> = TestHelpersJS.USDM.TotalSupplyEvent.processEvent as any;
 
-export const USDF_TotalSupplyEvent_mockData: (params:Types_USDF_TotalSupplyEvent_eventArgs) => Types_USDF_TotalSupplyEvent_event = TestHelpersJS.USDF.TotalSupplyEvent.mockData as any;
+export const USDM_TotalSupplyEvent_mockData: (params:Types_USDM_TotalSupplyEvent_eventArgs) => Types_USDM_TotalSupplyEvent_event = TestHelpersJS.USDM.TotalSupplyEvent.mockData as any;
 
-export const USDF_Mint_processEvent: EventFunctions_eventProcessor<Types_USDF_Mint_event> = TestHelpersJS.USDF.Mint.processEvent as any;
+export const USDM_Mint_processEvent: EventFunctions_eventProcessor<Types_USDM_Mint_event> = TestHelpersJS.USDM.Mint.processEvent as any;
 
-export const USDF_Mint_mockData: (params:Types_USDF_Mint_eventArgs) => Types_USDF_Mint_event = TestHelpersJS.USDF.Mint.mockData as any;
+export const USDM_Mint_mockData: (params:Types_USDM_Mint_eventArgs) => Types_USDM_Mint_event = TestHelpersJS.USDM.Mint.mockData as any;
 
-export const USDF_Burn_processEvent: EventFunctions_eventProcessor<Types_USDF_Burn_event> = TestHelpersJS.USDF.Burn.processEvent as any;
+export const USDM_Burn_processEvent: EventFunctions_eventProcessor<Types_USDM_Burn_event> = TestHelpersJS.USDM.Burn.processEvent as any;
 
-export const USDF_Burn_mockData: (params:Types_USDF_Burn_eventArgs) => Types_USDF_Burn_event = TestHelpersJS.USDF.Burn.mockData as any;
+export const USDM_Burn_mockData: (params:Types_USDM_Burn_eventArgs) => Types_USDM_Burn_event = TestHelpersJS.USDM.Burn.mockData as any;
 
 export const Addresses: { mockAddresses: Address_t[]; defaultAddress: Address_t } = TestHelpersJS.Addresses as any;
-
-export const USDF: {
-  TotalSupplyEvent: {
-    mockData: (params:Types_USDF_TotalSupplyEvent_eventArgs) => Types_USDF_TotalSupplyEvent_event; 
-    processEvent: EventFunctions_eventProcessor<Types_USDF_TotalSupplyEvent_event>
-  }; 
-  Mint: {
-    mockData: (params:Types_USDF_Mint_eventArgs) => Types_USDF_Mint_event; 
-    processEvent: EventFunctions_eventProcessor<Types_USDF_Mint_event>
-  }; 
-  Burn: {
-    mockData: (params:Types_USDF_Burn_eventArgs) => Types_USDF_Burn_event; 
-    processEvent: EventFunctions_eventProcessor<Types_USDF_Burn_event>
-  }
-} = TestHelpersJS.USDF as any;
 
 export const TroveManager: {
   TroveFullLiquidationEvent: {
@@ -183,6 +152,21 @@ export const TroveManager: {
     processEvent: EventFunctions_eventProcessor<Types_TroveManager_TrovePartialLiquidationEvent_event>
   }
 } = TestHelpersJS.TroveManager as any;
+
+export const USDM: {
+  TotalSupplyEvent: {
+    mockData: (params:Types_USDM_TotalSupplyEvent_eventArgs) => Types_USDM_TotalSupplyEvent_event; 
+    processEvent: EventFunctions_eventProcessor<Types_USDM_TotalSupplyEvent_event>
+  }; 
+  Mint: {
+    mockData: (params:Types_USDM_Mint_eventArgs) => Types_USDM_Mint_event; 
+    processEvent: EventFunctions_eventProcessor<Types_USDM_Mint_event>
+  }; 
+  Burn: {
+    mockData: (params:Types_USDM_Burn_eventArgs) => Types_USDM_Burn_event; 
+    processEvent: EventFunctions_eventProcessor<Types_USDM_Burn_event>
+  }
+} = TestHelpersJS.USDM as any;
 
 export const BorrowOperations: {
   OpenTroveEvent: {
@@ -213,7 +197,5 @@ export const StabilityPool: {
     processEvent: EventFunctions_eventProcessor<Types_StabilityPool_StabilityPoolLiquidationEvent_event>
   }
 } = TestHelpersJS.StabilityPool as any;
-
-export const FPTStaking: { UnstakeEvent: { mockData: (params:Types_FPTStaking_UnstakeEvent_eventArgs) => Types_FPTStaking_UnstakeEvent_event; processEvent: EventFunctions_eventProcessor<Types_FPTStaking_UnstakeEvent_event> }; StakeEvent: { mockData: (params:Types_FPTStaking_StakeEvent_eventArgs) => Types_FPTStaking_StakeEvent_event; processEvent: EventFunctions_eventProcessor<Types_FPTStaking_StakeEvent_event> } } = TestHelpersJS.FPTStaking as any;
 
 export const MockDb: { createMockDb: () => TestHelpers_MockDb_t } = TestHelpersJS.MockDb as any;

@@ -38,7 +38,7 @@ let publicConfig = ChainMap.fromArrayUnsafe([
           name: "BorrowOperations",
           abi: Types.BorrowOperations.abi,
           addresses: [
-            "0xeda02ae9cbe68183ee86a0b5e7a475215fbafc307e5e6506f970fa6dcc15d62e",
+            "0x783c5e5ea9a84350cfced8e217049a9f0ad70b11aaf42fc9ed9fd671bb401f97",
           ],
           events: [
             Types.BorrowOperations.OpenTroveEvent.name,
@@ -48,26 +48,12 @@ let publicConfig = ChainMap.fromArrayUnsafe([
         }
       ),
       (
-        "FPTStaking",
-        {
-          name: "FPTStaking",
-          abi: Types.FPTStaking.abi,
-          addresses: [
-            "0xb86e9d843da16084fbfc06400f4d86ca2432f2487bf5ac6b776cab5449b1307f",
-          ],
-          events: [
-            Types.FPTStaking.StakeEvent.name,
-            Types.FPTStaking.UnstakeEvent.name,
-          ],
-        }
-      ),
-      (
         "StabilityPool",
         {
           name: "StabilityPool",
           abi: Types.StabilityPool.abi,
           addresses: [
-            "0x90ae00be8f594c23ea87941a70574cd954fe1e1713470123b5111d6b04c37aef",
+            "0xe8b947dc0d738024096c209f87968782ad328ed5e71b71f57d9e4018f9e686c0",
           ],
           events: [
             Types.StabilityPool.StabilityPoolLiquidationEvent.name,
@@ -77,17 +63,17 @@ let publicConfig = ChainMap.fromArrayUnsafe([
         }
       ),
       (
-        "USDF",
+        "USDM",
         {
-          name: "USDF",
-          abi: Types.USDF.abi,
+          name: "USDM",
+          abi: Types.USDM.abi,
           addresses: [
-            "0x32deed96558e9572abce544aaf256724aee60517eeb1fabe76e86e4790c888b0",
+            "0x4d991aecdf1615def5bdb432ab683394787182e5cfad83988b856c8d388e449f",
           ],
           events: [
-            Types.USDF.TotalSupplyEvent.name,
-            Types.USDF.Mint.name,
-            Types.USDF.Burn.name,
+            Types.USDM.TotalSupplyEvent.name,
+            Types.USDM.Mint.name,
+            Types.USDM.Burn.name,
           ],
         }
       ),
@@ -97,13 +83,9 @@ let publicConfig = ChainMap.fromArrayUnsafe([
           name: "TroveManager",
           abi: Types.TroveManager.abi,
           addresses: [
-            "0x8b90326e5e82ca3b0a2d0fa0ef42023d2df25360e538d5833e94599a1178c64f",
-            "0x9eea94d170cfb8a1831e7c86e5167acad3e3d1166ddfc81c725377267622ec8e",
-            "0x5e8956e557b1e0bc79d7064222d1e853163ff8edc928be8f5ec32c1abd13df7e",
-            "0x4cdbfd7958cffe4562357104271c23228139e5a77933f0d4795f52ca7b715353",
-            "0xd7fce11644efb7a878e99229e9ee2f6de93ebec23647a0e3fb67cfbf03233264",
-            "0xc20ae74bfb15fb05652d911c156767051aa0c9ee918668cc3db45094106c8388",
-            "0xde9d3793b761ec829edb5a3c48200f30dc4877e67e28f7194c8b457bbb41a1ef",
+            "0x22a4c76edce873781e94a33627170656a507e1badf906fabdbdfaa3b5165a38c",
+            "0xc944cfeb826b3a62b648fe81e397256cc24364367089febcb40a96bb454f8b70",
+            "0x4fa56ee8ec817b31818407ba08c1a20c9d70cf0d245ce644d2ede713a50b4d58",
           ],
           events: [
             Types.TroveManager.TrovePartialLiquidationEvent.name,
@@ -113,13 +95,13 @@ let publicConfig = ChainMap.fromArrayUnsafe([
         }
       ),
     ])
-    let chain = ChainMap.Chain.makeUnsafe(~chainId=9889)
+    let chain = ChainMap.Chain.makeUnsafe(~chainId=0)
     (
       chain,
       {
         confirmedBlockThreshold: 0,
         syncSource: 
-          HyperFuel({endpointUrl: "https://fuel.hypersync.xyz"})
+          HyperFuel({endpointUrl: "https://fuel-testnet.hypersync.xyz"})
           ,
         startBlock: 0,
         contracts
